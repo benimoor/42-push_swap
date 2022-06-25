@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:48:13 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/06/25 23:56:21 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/06/26 01:55:02 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,20 @@ int	swap(t_list *lst)
 int	s_all(t_stack *stack, t_mode mod)
 {
 	if (mod == A)
+	{
 		if (swap(stack->a) < 0)
 			return (-1);
+	}
 	else if (mod == B)
+	{
 		if (swap(stack->a) < 0)
 			return (-1);
+	}
 	else if (mod == BOTH)
+	{
 		if (swap(stack->a) < 0 && swap(stack->b) < 0)
 			return (-1);
+	}
 	else
 		return (-1);
 	return (0);

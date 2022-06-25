@@ -1,4 +1,4 @@
-NAME = so_long
+NAME = push_swap
 CC = cc
 OBJS_DIR = objs
 SRCS_DIR = src
@@ -31,4 +31,9 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+push:
+	@git add .
+	@git commit -m "mssg"
+	@git push
+
+.PHONY: all clean fclean re bonus push
