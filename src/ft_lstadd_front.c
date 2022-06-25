@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ergrigor <ergrigor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/19 01:24:34 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/03/22 18:08:27 by ergrigor         ###   ########.fr       */
+/*   Created: 2022/03/18 23:02:57 by ergrigor          #+#    #+#             */
+/*   Updated: 2022/06/26 02:07:33 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst != 0)
-		while (lst && lst->next)
-			lst = lst -> next;
-	return (lst);
+	new->next = *lst;
+	*lst = new;
 }

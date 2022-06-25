@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:48:13 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/06/26 01:55:02 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/06/26 02:21:53 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,6 @@ size_t	ft_strlen(const char *str)
 void	put_msg(char *str, int fd)
 {
 	write(fd, str, (int)(ft_strlen(str)));
-}
-
-t_list	*ft_lstnew(int content)
-{
-	t_list	*new;
-
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->n = content;
-	new->next = NULL;
-	return (new);
 }
 
 int	swap(t_list *lst)

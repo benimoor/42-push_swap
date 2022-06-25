@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:51:55 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/06/25 23:57:13 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/06/26 02:23:12 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,9 @@ void	put_msg(char *str, int fd);
 int		swap(t_list *lst);
 void	push(t_stack *stack);
 t_list	*ft_lstnew(int content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif
