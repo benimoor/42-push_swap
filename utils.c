@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ergrigor <ergrigor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:48:13 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/06/24 20:21:25 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/06/25 23:56:21 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,104 +24,47 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void	put_mssg(char *str, int fd)
+void	put_msg(char *str, int fd)
 {
 	write(fd, str, (int)(ft_strlen(str)));
 }
 
-void	swap(t_lst *a, t_lst *b)
+t_list	*ft_lstnew(int content)
+{
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->n = content;
+	new->next = NULL;
+	return (new);
+}
+
+int	swap(t_list *lst)
 {
 	int	tmp;
 
-	tmp = a->n;
-	a->n = b->n;
-	b->n = tmp;
+	if (!lst->next)
+		return (-1);
+	tmp = lst->n;
+	lst->n = lst->next->n;
+	lst->next->n = tmp;
+	return (0);
 }
-/* 
-	1 -> sa
-	2-> sb
-	3-> ss
-  */
 
-int	s_all(t_lst	*a, t_lst *b, int mode)
+int	s_all(t_stack *stack, t_mode mod)
 {
-	if (mode == 1)
-	{
-		swap(a, a->next);
-		put_mssg("sa\n", 1);
-	}
-	else if (mode == 2)
-	{
-		swap(b, b->next);
-		put_mssg("sb\n", 1);
-	}
-	else if (mode == 3)
-	{
-		swap(a, a->next);
-		swap(b, b->next);
-		put_mssg("ss\n", 1);
-	}
+	if (mod == A)
+		if (swap(stack->a) < 0)
+			return (-1);
+	else if (mod == B)
+		if (swap(stack->a) < 0)
+			return (-1);
+	else if (mod == BOTH)
+		if (swap(stack->a) < 0 && swap(stack->b) < 0)
+			return (-1);
 	else
 		return (-1);
-	return (0);
-}
-
-int	pa(t_lst *a, t_lst *b)
-{
-	t_lst	cur;
-
-	if (!b)
-		return (1);
-	cur = *b;
-	if (b->next)
-	{
-		b->prev = 0;
-		b = b->next;
-	}
-	cur.prev = 0;
-	cur.next = a;
-	a->prev = &cur;
-	a = a->prev;
-	put_mssg("pa\n", 1);
-	return (0);
-}
-
-int	pb(t_lst *a, t_lst *b)
-{
-	t_lst	cur;
-
-	if (!a)
-		return (1);
-	cur = *a;
-	if (a->next)
-	{
-		a->prev = 0;
-		a = a->next;
-	}
-	cur.prev = 0;
-	cur.next = b;
-	b->prev = &cur;
-	b = b->prev;
-	put_mssg("pb\n", 1);
-	return (0);
-}
-
-int	ra(t_lst *a)
-{
-	t_lst	cur;
-	t_lst	first;
-	
-	cur = *a;
-	if (a->next == 0)
-		return (1);
-	*a = *a->next;
-	*a->prev = NULL;
-	first = a;
-	while (*a->next != 0)
-		*a = a->next;
-	*a->next = &cur;
-	cur.prev = *a;
-	cur.next = 0;
-	*a = &first;
 	return (0);
 }

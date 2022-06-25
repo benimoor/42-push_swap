@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ergrigor <ergrigor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:51:55 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/06/24 20:28:16 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/06/25 23:57:13 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,36 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 
-typedef struct s_lst
+typedef struct s_list
 {
 	int				n;
-	struct s_lst	*next;
-}	t_stack;
+	struct s_list	*next;
+}	t_list;
 
-typedef struct s_data
+typedef struct s_stack
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_list	*a;
+	t_list	*b;
 	int		len;
 }	t_stack;
 
+typedef enum mode_e
+{
+	A,
+	B,
+	BOTH
+}	t_mode;
+
+int		s_all(t_stack *stack, t_mode mod);
+int		p_all(t_stack *stack, t_mode mod);
+int		r_all(t_stack *stack, t_mode mod);
 size_t	ft_strlen(const char *str);
-int		s_all(t_lst	*a, t_lst *b, int mode);
-int		pa(t_lst *a, t_lst *b);
-int		pb(t_lst *a, t_lst *b);
-int		ra(t_lst *a);
+void	put_msg(char *str, int fd);
+int		swap(t_list *lst);
+void	push(t_stack *stack);
+t_list	*ft_lstnew(int content);
 
 #endif
