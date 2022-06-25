@@ -33,7 +33,7 @@ re: fclean all
 
 push:
 	@git add .
-	@git commit -m "mssg"
+	@git commit -m "$m"
 	@git push
 
 .PHONY: all clean fclean re bonus push
