@@ -1,27 +1,31 @@
 #include "push_swap.h"
 
+void reset () {
+  printf("\033[0m");
+}
+
 void print_stack(t_stack *stack) {
     t_list *start_a = stack->a;
     t_list *start_b = stack->b;
 
-    printf("\n--------------START---------------\n");
+    printf("\033[0;36m\n--------------START---------------\n");
     while (stack->a || stack->b) {
         if (stack->a && stack->b) {
-            printf("Stack A[%d]\t|\tStack B[%d]\n", stack->a->n, stack->b->n);
+            printf("\033[1;33mStack A[%d]\t\033[0;36m|\t\033[1;31mStack B[%d]\n", stack->a->n, stack->b->n);
             stack->b = stack->b->next;
             stack->a = stack->a->next;
         }
         else if (stack->a) {
-            printf("Stack A[%d]\t|\t\n", stack->a->n);
+            printf("\033[1;33mStack A[%d]\t\033[0;36m|\t\n", stack->a->n);
             stack->a = stack->a->next;
         }
         else if (stack->b) {
-            printf("          \t|\tStack B[%d]\n", stack->b->n);
+            printf("          \t\033[0;36m|\t\033[1;31mStack B[%d]\n", stack->b->n);
             stack->b = stack->b->next;
         }
     }
-    printf("---------------END----------------\n");
-
+    printf("\033[0;36m---------------END----------------\n");
+    reset();
     stack->a = start_a;
     stack->b = start_b;
 }
