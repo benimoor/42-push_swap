@@ -23,3 +23,5 @@ t_list	*ft_lstnew(int content)
 	new->next = NULL;
 	return (new);
 }
+
+// list->next = ft_lstnew(4, list);

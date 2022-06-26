@@ -21,6 +21,7 @@ typedef struct s_list
 {
 	int				n;
 	struct s_list	*next;
+	// struct s_list	*prev;
 }	t_list;
 
 typedef struct s_stack
@@ -43,7 +44,7 @@ int		r_all(t_stack *stack, t_mode mod);
 size_t	ft_strlen(const char *str);
 void	put_msg(char *str, int fd);
 int		swap(t_list *lst);
-void	push(t_stack *stack);
+int		push(t_list *dst, t_list *src);
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);

@@ -41,6 +41,41 @@ int	swap(t_list *lst)
 	return (0);
 }
 
+int push(t_list *dst, t_list *src) {
+
+	t_list *iter;
+
+	iter = src;
+	while (iter->next->next != NULL) {
+		iter = iter->next;
+	}
+	ft_lstadd_back(&dst, iter->next);
+	iter->next = NULL;
+
+	return 0;
+}
+
+int	p_all(t_stack *stack, t_mode mod) {
+	if (mod != A && mod != B)
+		return -1;
+
+	if (stack->b != NULL && mod == A) {
+		if (push(stack->a, stack->b) < 0) {
+			return (-1);
+		}
+	}
+	else if (stack->a != NULL && mod == B) {
+		if (push(stack->b, stack->a) < 0)
+			return (-1);
+	}
+	else {
+		printf("inside else\n");
+		return -1;
+	}
+
+	return 0;
+}
+
 int	s_all(t_stack *stack, t_mode mod)
 {
 	if (mod == A)
@@ -50,7 +85,7 @@ int	s_all(t_stack *stack, t_mode mod)
 	}
 	else if (mod == B)
 	{
-		if (swap(stack->a) < 0)
+		if (swap(stack->b) < 0)
 			return (-1);
 	}
 	else if (mod == BOTH)
