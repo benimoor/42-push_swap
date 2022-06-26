@@ -58,5 +58,9 @@ int main(int argc, char **argv)
 
     print_stack(stack);
 
+    r_all(stack, A);
+
+    print_stack(stack);
+
     return 0;
 }
