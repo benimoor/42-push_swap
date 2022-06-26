@@ -41,6 +41,8 @@ typedef enum mode_e
 int		s_all(t_stack *stack, t_mode mod);
 int		p_all(t_stack *stack, t_mode mod);
 int		r_all(t_stack *stack, t_mode mod);
+int		fill_list(t_list *list, int content);
+int		ft_atoi(const char *str);
 size_t	ft_strlen(const char *str);
 void	put_msg(char *str, int fd);
 int		swap(t_list *lst);

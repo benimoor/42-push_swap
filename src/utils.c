@@ -29,6 +29,39 @@ void	put_msg(char *str, int fd)
 	write(fd, str, (int)(ft_strlen(str)));
 }
 
+int	fill_list(t_list *list, int content) {
+	t_list *new;
+	
+	new = ft_lstnew(content);
+
+	if (new == NULL)
+		return (-1);
+
+	ft_lstadd_back(&list, new);
+	return (0);
+}
+
+int	ft_atoi(const char *str)
+{
+	int	is_negative;
+	int	res;
+
+	res = 0;
+	is_negative = 1;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
+		is_negative *= -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + *str - '0';
+		str++;
+	}
+	return (res * is_negative);
+}
+
 int	swap(t_list *lst)
 {
 	int	tmp;

@@ -30,7 +30,7 @@ void print_stack(t_stack *stack) {
     stack->b = start_b;
 }
 
-int main()
+int main(int argc, char **argv)
 {
     t_stack *stack = malloc(sizeof(t_stack));
 
@@ -40,11 +40,13 @@ int main()
     stack->a = a;
     stack->b = b;
 
-    stack->a->n = 17;
-    stack->a->next = ft_lstnew(2);
-
-    stack->b->n = 25;
-    stack->b->next = ft_lstnew(4);
+    int i = 1;
+    while (i < argc) {
+        if (argv[i] == NULL)
+            break;
+        fill_list(stack->a, ft_atoi(argv[i]));
+        i++;
+    }
 
     print_stack(stack);
 
