@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:48:13 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/06/26 13:26:15 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/07/05 14:52:21 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void	put_msg(char *str, int fd)
 	write(fd, str, (int)(ft_strlen(str)));
 }
 
-int	fill_list(t_list *list, int content)
+int	fill_list(t_list **lst, int content)
 {
-	t_list	*new;
+	t_list *new;
 
 	new = ft_lstnew(content);
-	if (new == NULL)
+	if(new == NULL)
 		return (-1);
-	ft_lstadd_back(&list, new);
+	ft_lstadd_back(lst, new);	
 	return (0);
 }
 
@@ -73,15 +73,15 @@ int	swap(t_list *lst)
 	return (0);
 }
 
-int	push(t_list *dst, t_list *src)
+int	push(t_list **dst, t_list **src)
 {
-	t_list	*iter;
+	t_list	*tmp;
 
-	iter = src;
-	while (iter->next->next != NULL)
-		iter = iter->next;
-	ft_lstadd_back(&dst, iter->next);
-	iter->next = NULL;
+	tmp = *src;
+	if ((*src)->next)
+		*src = (*src)->next;
+	tmp->next = NULL;
+	ft_lstadd_front(dst, tmp);
 	return (0);
 }
 
@@ -91,13 +91,13 @@ int	p_all(t_stack *stack, t_mode mod)
 		return (-1);
 	if (stack->b != NULL && mod == A)
 	{
-		if (push(stack->a, stack->b) < 0)
+		if (push(&stack->a, &stack->b) < 0)
 			return (-1);
 		put_msg("pa\n", 1);
 	}
 	else if (stack->a != NULL && mod == B)
 	{
-		if (push(stack->b, stack->a) < 0)
+		if (push(&stack->b, &stack->a) < 0)
 			return (-1);
 		put_msg("pb\n", 1);
 	}
@@ -137,22 +137,18 @@ int	s_all(t_stack *stack, t_mode mod)
 	return (0);
 }
 
-int	shift(t_list *lst)
+int	shift(t_list **lst)
 {
 	t_list	*iter;
 	t_list	*start;
 	t_list	*cur;
 
-	start = lst->next;
-	printf("lst address : [%p]\tlst->n: [%d]\nstart address: [%p]\tstart->n: [%d]\nstart-->next:[%p]\t start->next->n[%d]\n", lst, lst->n, start, start->n, start->next, start->next->n);
-	cur = lst;
-	iter = ft_lstlast(lst);
-	cur->next = NULL;
-	while (iter->next)
-		iter = iter->next;
+	start = (*lst)->next;
+	cur = *lst;
+	iter = ft_lstlast(*lst);
 	iter->next = cur;
-	lst = start;
-	printf("lst address : [%p]\tlst->n: [%d]\nstart address: [%p]\tstart->n: [%d]\nstart-->next:[%p]\t start->next->n[%d]\n", lst, lst->n, start, start->n, start->next, start->next->n);
+	cur->next = NULL;
+	*lst = start;
 	return (0);
 }
 
@@ -161,17 +157,17 @@ int		r_all(t_stack *stack, t_mode mod)
 	if (mod == A)
 	{
 		put_msg("ra\n", 1);
-		shift(stack->a);
+		shift(&stack->a);
 	}
 	else if (mod == B)
 	{
-		shift(stack->b);
+		shift(&stack->b);
 		put_msg("rb\n", 1);
 	}
 	else if (mod == BOTH)
 	{
-		shift(stack->a);
-		shift(stack->b);
+		shift(&stack->a);
+		shift(&stack->b);
 		put_msg("rr\n", 1);
 	}
 	else

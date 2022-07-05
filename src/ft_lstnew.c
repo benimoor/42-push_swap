@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 21:45:45 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/06/26 02:22:17 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/07/05 12:23:53 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,3 @@ t_list	*ft_lstnew(int content)
 	new->next = NULL;
 	return (new);
 }
-
-// list->next = ft_lstnew(4, list);

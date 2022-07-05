@@ -1,255 +1,168 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-# GNU Make 4.3
-# Built for x86_64-pc-linux-gnu
-# Copyright (C) 1988-2020 Free Software Foundation, Inc.
-# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-# This is free software: you are free to change and redistribute it.
-# There is NO WARRANTY, to the extent permitted by law.
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
 
-# Make data base, printed on Sun Jun 26 13:15:15 2022
+# This program built for i386-apple-darwin11.3.0
+ 
+
+# Make data base, printed on Tue Jul  5 14:22:09 2022
 
 # Variables
 
-# environment
-GDK_BACKEND = x11
-# environment
-LC_ALL = C
-# environment
-GTK_RC_FILES = /etc/gtk/gtkrc:/home/kali/.gtkrc:/home/kali/.config/gtkrc
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f646975d-2022-47d3-9f2c-79e710325e22.sock
-# environment
-VSCODE_CWD = /home/kali
-# environment
-LESS_TERMCAP_me = [0m
-# default
-MAKE_COMMAND := make
-# environment
-QT_ACCESSIBILITY = 1
-# automatic
-@D = $(patsubst %/,%,$(dir $@))
-# environment
-VSCODE_HANDLES_UNCAUGHT_ERRORS = true
-# default
-.VARIABLES := 
-# environment
-PWD = /opt/push_swap
-# automatic
-%D = $(patsubst %/,%,$(dir $%))
-# environment
-XDG_DATA_DIRS = /usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-# environment
-OLDPWD = /home/kali
-# automatic
-^D = $(patsubst %/,%,$(dir $^))
-# environment
-VSCODE_LOG_STACK = false
-# automatic
-%F = $(notdir $%)
-# environment
-VSCODE_CODE_CACHE_PATH = /home/kali/.config/Code/CachedData/da15b6fd3ef856477bf6f4fb29ba1b7af717770d
-# environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
-# environment
-LANG = C
-# environment
-POWERSHELL_UPDATECHECK = Off
-# environment
-XAUTHORITY = /home/kali/.Xauthority
-# default
-.LOADED := 
-# environment
-LESS_TERMCAP_md = [1;36m
-# default
-.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
-# makefile
-MAKEFLAGS = pqrR
-# environment
-LESS_TERMCAP_so = [01;33m
-# makefile
-CURDIR := /opt/push_swap
-# environment
-VSCODE_PIPE_LOGGING = true
-# environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# makefile (from 'Makefile', line 6)
-SRCS = $(wildcard $(SRCS_DIR)/*.c)
-# automatic
-*D = $(patsubst %/,%,$(dir $*))
-# environment
-LESS_TERMCAP_ue = [0m
-# environment
-PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
-# environment
-MFLAGS = -pqrR
-# environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXXdYMut6/agent.1237
-# default
-.SHELLFLAGS := -c
-# environment
-XDG_CONFIG_DIRS = /home/kali/.config/kdedefaults:/etc/xdg
-# makefile (from 'Makefile', line 4)
-SRCS_DIR = src
-# automatic
-+D = $(patsubst %/,%,$(dir $+))
-# environment
-XCURSOR_THEME = breeze_cursors
-# environment
-XDG_SESSION_DESKTOP = KDE
-# makefile (from 'Makefile', line 1)
-MAKEFILE_LIST := Makefile
-# automatic
-@F = $(notdir $@)
-# environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
-VSCODE_PID = 2786
-# environment
-XDG_SESSION_TYPE = x11
-# automatic
-?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'Makefile', line 5)
-FLAGS = -Wall -Werror -Wextra -g -Iincludes
-# environment
-SESSION_MANAGER = local/kali:@/tmp/.ICE-unix/1410,unix/kali:/tmp/.ICE-unix/1410
-# automatic
-*F = $(notdir $*)
-# environment
-QT_QPA_PLATFORMTHEME = 
-# environment
-CHROME_DESKTOP = code-url-handler.desktop
-# environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+ 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
-# environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
-# default
-MAKE_HOST := x86_64-pc-linux-gnu
-# makefile (from 'Makefile', line 7)
-OBJS = $(patsubst $(SRCS_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRCS))
-# makefile
-SHELL = /bin/sh
-# environment
-LESS_TERMCAP_us = [1;32m
-# default
-MAKECMDGOALS := all
-# environment
-SHLVL = 0
-# environment
-MAKELEVEL := 0
-# makefile (from 'Makefile', line 9)
-MKDIR = mkdir -p
-# default
-MAKE = $(MAKE_COMMAND)
-# environment
-PATH = /usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin:/home/kali/.dotnet/tools
-# environment
-LESS_TERMCAP_se = [0m
-# default
-MAKEFILES := 
-# environment
-LANGUAGE = en_US:en
-# automatic
-^F = $(notdir $^)
-# environment
-COMMAND_NOT_FOUND_INSTALL_PROMPT = 1
-# environment
-LESS_TERMCAP_mb = [1;31m
-# environment
-VSCODE_LOG_NATIVE = false
 # automatic
 ?F = $(notdir $?)
 # environment
-KDE_APPLICATIONS_AS_SCOPE = 1
-# makefile (from 'Makefile', line 1)
-NAME = push_swap
-# environment
-XDG_SEAT = seat0
-# environment
-XDG_CURRENT_DESKTOP = KDE
-# environment
-LS_COLORS = 
+VSCODE_LOG_NATIVE = false
 # automatic
-+F = $(notdir $+)
-# environment
-XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
-# environment
-DESKTOP_SESSION = plasma
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = KDE
-# 'override' directive
-GNUMAKEFLAGS := 
-# environment
-LOGNAME = kali
-# environment
-XDG_VTNR = 7
-# makefile (from 'Makefile', line 11)
-.DEFAULT_GOAL = all
-# environment
-SYSTEMD_EXEC_PID = 1190
-# makefile (from 'Makefile', line 8)
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/ergrigor/Desktop/push_swap
+# makefile
+SHELL = /bin/sh
+# makefile (from `Makefile', line 8)
 RM = rm -rf
 # environment
-DISPLAY = :0
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-USER = kali
+_ = /usr/bin/make
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
 # environment
-GTK_MODULES = gail:atk-bridge
+VSCODE_VERBOSE_LOGGING = true
+# makefile (from `Makefile', line 7)
+OBJS = $(patsubst $(SRCS_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRCS))
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cg3r0033ry/T/vscode-ipc-6039dee9-6014-42bd-a313-572088fbe520.sock
+# environment
+VSCODE_CWD = /
+# environment
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.xsGXFlZYWy/Render
+# environment
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Frameworks/Mono.framework/Versions/Current/Commands
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# makefile (from `Makefile', line 4)
+SRCS_DIR = src
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
 # default
-MAKE_VERSION := 4.3
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-KDE_SESSION_UID = 1000
-# makefile (from 'Makefile', line 3)
-OBJS_DIR = objs
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.g4GSxFX4yl/Listeners
+# automatic
+%F = $(notdir $%)
 # environment
-SSH_AGENT_PID = 1287
+VSCODE_PIPE_LOGGING = true
 # environment
-_ = /usr/share/code/code
+PWD = /Users/ergrigor/Desktop/push_swap
 # environment
-XDG_RUNTIME_DIR = /run/user/1000
-# environment
-GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
-# environment
-POWERSHELL_TELEMETRY_OPTOUT = 1
-# environment
-XDG_SESSION_CLASS = user
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-GTK2_RC_FILES = /etc/gtk-2.0/gtkrc:/home/kali/.gtkrc-2.0:/home/kali/.config/gtkrc-2.0
-# environment
-HOME = /home/kali
-# environment
-_JAVA_OPTIONS = -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-# environment
-ELECTRON_RUN_AS_NODE = 1
-# environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-f2138f4e-1.67.1-main.sock
-# environment
-XDG_SESSION_ID = 3
-# environment
-DOTNET_CLI_TELEMETRY_OPTOUT = 1
-# environment
-XCURSOR_SIZE = 24
+HOME = /Users/ergrigor
 # default
-.RECIPEPREFIX := 
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/ergrigor/Library/Application Support/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
+# environment
+LOGNAME = ergrigor
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+ZSH = /Users/ergrigor/.oh-my-zsh
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from `Makefile', line 9)
+MKDIR = mkdir -p
+# environment
+XPC_FLAGS = 0x0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# makefile (from `Makefile', line 6)
+SRCS = $(wildcard $(SRCS_DIR)/*.c)
+# environment
+SHLVL = 1
+# makefile (from `Makefile', line 2)
+CC = cc
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = ergrigor
+# makefile (from `Makefile', line 11)
+.DEFAULT_GOAL = all
+# makefile (from `Makefile', line 1)
+NAME = push_swap
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000cg3r0033ry/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/ergrigor/Library/Application Support/Code/1.68.1-main.sock
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+XPC_SERVICE_NAME = com.microsoft.VSCode.2228
+# makefile (from `Makefile', line 3)
+OBJS_DIR = objs
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+__CF_USER_TEXT_ENCODING = 0x18F1E:0x0:0x0
+# default
+MAKEFILES := 
 # automatic
 <F = $(notdir $<)
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
 # default
 SUFFIXES := 
-# environment
-QT_AUTO_SCREEN_SCALE_FACTOR = 0
-# environment
-KDE_SESSION_VERSION = 5
+# makefile (from `Makefile', line 5)
+FLAGS = -Wall -Werror -Wextra -g -Iincludes
 # default
-.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
-# makefile (from 'Makefile', line 2)
-CC = cc
+.INCLUDE_DIRS = /usr/local/include
 # environment
-KDE_FULL_SESSION = true
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+VSCODE_PID = 1795
 # variable set hash-table stats:
-# Load=119/1024=12%, Rehash=0, Collisions=13/161=8%
+# Load=74/1024=7%, Rehash=0, Collisions=3/110=3%
 
 # Pattern-specific Variable Values
 
@@ -257,76 +170,134 @@ KDE_FULL_SESSION = true
 
 # Directories
 
-# src (device 2052, inode 6684726): 9 files, no impossibilities.
-# . (device 2052, inode 6684675): 9 files, no impossibilities.
+# . (device 16777224, inode 1105940): 9 files, no impossibilities.
+# src (device 16777224, inode 1106009): 9 files, no impossibilities.
 
 # 18 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 objs/%.o: src/%.c | objs
-#  recipe to execute (from 'Makefile', line 14):
+#  commands to execute (from `Makefile', line 14):
 	$(CC) $(FLAGS) -c $< -o $@
+	
 
 # 1 implicit rules, 0 (0.0%) terminal.
+
 # Files
 
 # Not a target:
 src/ft_lstnew.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-26 04:54:08.465509151
+#  Last modified 2022-07-05 12:23:53
 #  File has been updated.
 #  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-objs/ft_lstadd_front.o: src/ft_lstadd_front.c | objs
- 
+objs/main.o: src/main.c | objs
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'ft_lstadd_front'
-#  Last modified 2022-06-26 12:12:59.353239961
+#  Implicit/static pattern stem: `main'
+#  Last modified 2022-07-05 13:15:23
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 14):
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 14):
 	$(CC) $(FLAGS) -c $< -o $@
+	
+
+all: push_swap
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+.PHONY: all clean fclean re bonus push
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 objs/ft_lstadd_back.o: src/ft_lstadd_back.c | objs
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'ft_lstadd_back'
-#  Last modified 2022-06-26 12:12:59.333239961
+#  Implicit/static pattern stem: `ft_lstadd_back'
+#  Last modified 2022-07-05 12:56:45
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 14):
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 14):
 	$(CC) $(FLAGS) -c $< -o $@
+	
 
 # Not a target:
-src/ft_lstadd_back.c:
+src/ft_lstsize.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-26 04:54:08.465509151
+#  Last modified 2022-07-01 21:48:16
 #  File has been updated.
 #  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+push:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 35):
+	@git add .
+	@git commit -m "$m"
+	@git push
+	
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-26 04:54:08.465509151
+#  Last modified 2022-07-01 21:48:16
 #  File has been updated.
 #  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+objs/ft_lstlast.o: src/ft_lstlast.c | objs
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_lstlast'
+#  Last modified 2022-07-05 12:56:45
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 14):
+	$(CC) $(FLAGS) -c $< -o $@
+	
+
+# Not a target:
+src/ft_lstadd_front.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 21:48:16
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 objs:
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-26 12:48:13.817153251
+#  Last modified 2022-07-05 13:15:23
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 17):
+#  commands to execute (from `Makefile', line 17):
 	$(MKDIR) $(OBJS_DIR)
-
-objs/ft_lstsize.o: src/ft_lstsize.c | objs
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'ft_lstsize'
-#  Last modified 2022-06-26 12:12:59.413239958
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 14):
-	$(CC) $(FLAGS) -c $< -o $@
+	
 
 bonus: all
 #  Phony target (prerequisite of .PHONY).
@@ -334,77 +305,45 @@ bonus: all
 #  File does not exist.
 #  File has not been updated.
 
-objs/ft_lstnew.o: src/ft_lstnew.c | objs
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'ft_lstnew'
-#  Last modified 2022-06-26 12:12:59.393239959
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 14):
-	$(CC) $(FLAGS) -c $< -o $@
-
-objs/ft_lstlast.o: src/ft_lstlast.c | objs
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'ft_lstlast'
-#  Last modified 2022-06-26 12:12:59.37723996
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 14):
-	$(CC) $(FLAGS) -c $< -o $@
-
-clean:
+fclean: clean
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 27):
-	$(RM) $(OBJS_DIR)
+#  commands to execute (from `Makefile', line 30):
+	$(RM) $(NAME)
+	
 
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-26 12:25:13.889209839
+#  Last modified 2022-07-05 13:15:21
 #  File has been updated.
 #  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-re: fclean all
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-
-# Not a target:
-src/ft_lstadd_front.c:
+objs/utils.o: src/utils.c | objs
 #  Implicit rule search has been done.
-#  Last modified 2022-06-26 04:54:08.465509151
+#  Implicit/static pattern stem: `utils'
+#  Last modified 2022-07-05 12:56:45
 #  File has been updated.
+ 
 #  Successfully updated.
-
-push:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 35):
-	@git add .
-	@git commit -m "$m"
-	@git push
-
-objs/main.o: src/main.c | objs
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'main'
-#  Last modified 2022-06-26 12:25:17.857209676
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 14):
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 14):
 	$(CC) $(FLAGS) -c $< -o $@
+	
 
 # Not a target:
-src/ft_lstsize.c:
+src/ft_lstadd_back.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-26 04:54:08.465509151
+#  Last modified 2022-07-01 21:48:16
 #  File has been updated.
 #  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .DEFAULT:
@@ -412,72 +351,99 @@ src/ft_lstsize.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-all: push_swap
-#  Phony target (prerequisite of .PHONY).
-#  Command line target.
-#  Implicit rule search has not been done.
-#  File does not exist.
+objs/ft_lstnew.o: src/ft_lstnew.c | objs
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_lstnew'
+#  Last modified 2022-07-05 12:56:45
 #  File has been updated.
 #  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 14):
+	$(CC) $(FLAGS) -c $< -o $@
+	
 
-fclean: clean
+re: fclean all
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 30):
-	$(RM) $(NAME)
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 27):
+	$(RM) $(OBJS_DIR)
+	
 
 push_swap: objs/ft_lstadd_back.o objs/ft_lstadd_front.o objs/ft_lstlast.o objs/ft_lstnew.o objs/ft_lstsize.o objs/main.o objs/utils.o | objs
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-26 12:48:13.83315325
+#  Last modified 2022-07-05 13:15:23
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 22):
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 22):
 	$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LINKERS)
-
-# Not a target:
-src/utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-06-26 12:48:08.745153459
-#  File has been updated.
-#  Successfully updated.
-
-.PHONY: all clean fclean re bonus push
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+	
 
 # Not a target:
 src/ft_lstlast.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-26 04:54:08.465509151
+#  Last modified 2022-07-01 21:48:16
 #  File has been updated.
 #  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-objs/utils.o: src/utils.c | objs
+objs/ft_lstsize.o: src/ft_lstsize.c | objs
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'utils'
-#  Last modified 2022-06-26 12:48:13.821153251
+#  Implicit/static pattern stem: `ft_lstsize'
+#  Last modified 2022-07-05 12:56:45
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 14):
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 14):
 	$(CC) $(FLAGS) -c $< -o $@
+	
+
+objs/ft_lstadd_front.o: src/ft_lstadd_front.c | objs
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_lstadd_front'
+#  Last modified 2022-07-05 12:56:45
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 14):
+	$(CC) $(FLAGS) -c $< -o $@
+	
+
+# Not a target:
+src/utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-05 12:37:09
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=26/1024=3%, Rehash=0, Collisions=1/92=1%
+# Load=26/1024=3%, Rehash=0, Collisions=0/93=0%
 # VPATH Search Paths
 
-# No 'vpath' search paths.
+# No `vpath' search paths.
 
-# No general ('VPATH' variable) search path.
+# No general (`VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 50 / storage = 562 B / avg = 11 B
-# current buf: size = 8162 B / used = 562 B / count = 50 / avg = 11 B
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# strcache performance: lookups = 103 / hit rate = 51%
-# hash-table stats:
-# Load=50/8192=1%, Rehash=0, Collisions=0/103=0%
-# Finished Make data base on Sun Jun 26 13:15:15 2022
+# Finished Make data base on Tue Jul  5 14:22:09 2022
 
  
