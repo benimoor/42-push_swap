@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:48:13 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/05 14:52:21 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:29:55 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,41 @@ void	put_msg(char *str, int fd)
 	write(fd, str, (int)(ft_strlen(str)));
 }
 
+int	fill_stack (t_stack *stack, char **argv, int argc)
+{
+	printf("\n%d\n", 5);
+	int	flag[INT_MAX];
+	int	i;
+	int	n;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (argv[i] == NULL)
+			break ;
+		n = ft_atoi(argv[i]);
+		if (flag[n] == 0)
+		{
+			flag[n] = 1;
+			fill_list(&stack->a, n);
+		}
+		else if (flag[n] == 1)
+		{
+			put_msg("Double digits\n", 2);
+			return (-1);
+		}
+		i++;
+	}
+	return (0);
+}
 int	fill_list(t_list **lst, int content)
 {
-	t_list *new;
+	t_list	*new;
 
 	new = ft_lstnew(content);
-	if(new == NULL)
+	if (new == NULL)
 		return (-1);
-	ft_lstadd_back(lst, new);	
+	ft_lstadd_back(lst, new);
 	return (0);
 }
 
@@ -152,6 +179,23 @@ int	shift(t_list **lst)
 	return (0);
 }
 
+int	shift_rr(t_list **lst)
+{
+	t_list	*iter;
+	t_list	*start;
+	t_list	*cur;
+
+	cur = *lst;
+	iter = *lst;
+	while (iter->next->next)
+		iter = iter->next;
+	start = iter->next;
+	iter->next = NULL;
+	start->next = cur;
+	*lst = start;
+	return (0);
+}
+
 int		r_all(t_stack *stack, t_mode mod)
 {
 	if (mod == A)
@@ -169,6 +213,32 @@ int		r_all(t_stack *stack, t_mode mod)
 		shift(&stack->a);
 		shift(&stack->b);
 		put_msg("rr\n", 1);
+	}
+	else
+	{
+		put_msg("Error in sort (ra or rb or rr)\n", 2);
+		return (-1);
+	}
+	return (0);
+}
+
+int		rr_all(t_stack *stack, t_mode mod)
+{
+	if (mod == A)
+	{
+		put_msg("rra\n", 1);
+		shift_rr(&stack->a);
+	}
+	else if (mod == B)
+	{
+		shift_rr(&stack->b);
+		put_msg("rrb\n", 1);
+	}
+	else if (mod == BOTH)
+	{
+		shift_rr(&stack->a);
+		shift_rr(&stack->b);
+		put_msg("rrr\n", 1);
 	}
 	else
 	{

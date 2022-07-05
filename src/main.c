@@ -19,7 +19,9 @@ int main(int argc, char **argv)
     t_stack *stack = malloc(sizeof(t_stack));
 	t_list *a = ft_lstnew(ft_atoi(argv[1]));
 	t_list *b;
-
+	int	n;
+	int flag[2147483646];
+	flag[ft_atoi(argv[1])] = 1;
 	b = NULL;
 	stack->a = a;
 	stack->b = b;	
@@ -28,9 +30,10 @@ int main(int argc, char **argv)
 
     while (i < argc)
 	{
+		n = ft_atoi(argv[i]);
 		if (argv[i] == NULL)
 			break ;
-		fill_list(&stack->a, ft_atoi(argv[i]));
+		fill_list(&stack->a, n);
 		i++;
 	}
 	print_stack(stack->a);

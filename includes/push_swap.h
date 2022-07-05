@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:51:55 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/05 12:26:33 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:16:03 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -41,10 +42,14 @@ typedef enum mode_e
 int		s_all(t_stack *stack, t_mode mod);
 int		p_all(t_stack *stack, t_mode mod);
 int		r_all(t_stack *stack, t_mode mod);
+int		rr_all(t_stack *stack, t_mode mod);
+int		fill_stack (t_stack *stack, char **argv, int argc);
 int		fill_list(t_list **lst, int content);
 int		ft_atoi(const char *str);
 size_t	ft_strlen(const char *str);
 void	put_msg(char *str, int fd);
+int		shift_rr(t_list **lst);
+int		shift(t_list **lst);
 int		swap(t_list *lst);
 int		push(t_list **dst, t_list **src);
 t_list	*ft_lstnew(int content);
