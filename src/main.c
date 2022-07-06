@@ -16,33 +16,34 @@ void print_stack(t_list *start_a) {
 
 int main(int argc, char **argv)
 {
-    t_stack *stack = malloc(sizeof(t_stack));
-	t_list *a = ft_lstnew(ft_atoi(argv[1]));
-	t_list *b;
-	int	n;
-	int flag[2147483646];
-	flag[ft_atoi(argv[1])] = 1;
-	b = NULL;
-	stack->a = a;
-	stack->b = b;	
-	//fill_list(&stack->a, ft_atoi(argv[1]));
-    int i = 2;
+    // t_stack *stack = malloc(sizeof(t_stack));
+	// t_list *a = ft_lstnew(ft_atoi(argv[1]));
+	// t_list *b;
+	// int	n;
+	// b = NULL;
+	// stack->a = a;
+	// stack->b = b;	
+	// //fill_list(&stack->a, ft_atoi(argv[1]));
+    // int i = 2;
 
-    while (i < argc)
-	{
-		n = ft_atoi(argv[i]);
-		if (argv[i] == NULL)
-			break ;
-		fill_list(&stack->a, n);
-		i++;
-	}
-	print_stack(stack->a);
-	p_all(stack, B);
-	print_stack(stack->a);
-	print_stack(stack->b);
-	s_all(stack, A);
-	print_stack(stack->a);
-	r_all(stack, A);
-	print_stack(stack->a);
+    // while (i < argc)
+	// {
+	// 	n = ft_atoi(argv[i]);
+	// 	if (argv[i] == NULL)
+	// 		break ;
+	// 	fill_list(&stack->a, n);
+	// 	i++;
+	// }
+	// print_stack(stack->a);
+	// p_all(stack, B);
+	// print_stack(stack->a);
+	// print_stack(stack->b);
+	// s_all(stack, A);
+	// print_stack(stack->a);
+	// r_all(stack, A);
+	// print_stack(stack->a);
+	char **test = valid_args(argv, argc);
+	for(int i = 0; test[i]; i++)
+		printf("[%d]%s\n", i, test[i]);
     return 0;
 }

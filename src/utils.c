@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:48:13 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/05 16:29:55 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/07/06 22:13:58 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,33 +29,97 @@ void	put_msg(char *str, int fd)
 	write(fd, str, (int)(ft_strlen(str)));
 }
 
-int	fill_stack (t_stack *stack, char **argv, int argc)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	printf("\n%d\n", 5);
-	int	flag[INT_MAX];
-	int	i;
-	int	n;
+	char		*new_str;
+	size_t		f_index;
+	size_t		s_index;
 
-	i = 1;
-	while (i < argc)
+	new_str = malloc(sizeof (char)
+			* (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!new_str)
+		return (NULL);
+	f_index = 0;
+	s_index = 0;
+	if (s1)
+		while (s1[f_index])
+			new_str[s_index++] = s1[f_index++];
+	f_index = 0;
+	if (s2)
+		while (s2[f_index])
+			new_str[s_index++] = s2[f_index++];
+	new_str[s_index] = '\0';
+	free(s1);
+	return (new_str);
+}
+
+char	*ft_strdup(const char *src)
+{
+	char	*dup;
+	int		i;
+
+	i = -1;
+	dup = (char *)malloc(ft_strlen(src) + 1);
+	if (!dup)
+		return (NULL);
+	while (src[++i])
+		dup[i] = src[i];
+	dup[i] = 0;
+	return (dup);
+}
+
+int	validation(char **res) 
+{
+	int	n;
+	int	i;
+	int	j;
+
+	i = 0;
+	while (res[i] != NULL)
 	{
-		if (argv[i] == NULL)
-			break ;
-		n = ft_atoi(argv[i]);
-		if (flag[n] == 0)
+		n = ft_atoi(res[i]);
+		j = i;
+		while (res[j] != NULL)
 		{
-			flag[n] = 1;
-			fill_list(&stack->a, n);
-		}
-		else if (flag[n] == 1)
-		{
-			put_msg("Double digits\n", 2);
-			return (-1);
+			if (n == ft_atoi(res[j]))
+				return (-1);
+			j++;
 		}
 		i++;
 	}
 	return (0);
 }
+
+char **valid_args(char **argv, int argc)
+{
+	int		i;
+	char	*str;
+	char	*tmp;
+	char	**res;
+
+	str = NULL;
+	i = 1;
+	while (i < argc)
+	{
+		tmp = ft_strjoin(ft_strdup(argv[i++]), " ");
+		str = ft_strjoin(str, tmp);
+		free(tmp);
+	}
+	res = ft_split(str, ' ');
+	free(str);
+	if (!res)
+		return (NULL);
+	if (validation(res) < 0)
+	{
+		i = 0;
+		while (res[i])
+			free(res[i++]);
+		free(res);
+		return (NULL);
+	}
+	return (res);
+}
+
 int	fill_list(t_list **lst, int content)
 {
 	t_list	*new;

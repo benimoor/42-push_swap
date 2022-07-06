@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:51:55 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/05 16:16:03 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/07/06 22:13:10 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <limits.h>
+
 
 typedef struct s_list
 {
@@ -43,7 +44,7 @@ int		s_all(t_stack *stack, t_mode mod);
 int		p_all(t_stack *stack, t_mode mod);
 int		r_all(t_stack *stack, t_mode mod);
 int		rr_all(t_stack *stack, t_mode mod);
-int		fill_stack (t_stack *stack, char **argv, int argc);
+char	**valid_args(char **argv, int argc);
 int		fill_list(t_list **lst, int content);
 int		ft_atoi(const char *str);
 size_t	ft_strlen(const char *str);
@@ -57,5 +58,9 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+char	**ft_split(char const *s, char c);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strdup(const char *src);
+int		validation(char **res);
 
 #endif
