@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 22:04:21 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/07 22:21:28 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/07/07 22:35:20 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ char **valid_args(char **argv, int argc)
 	res = ft_split(str, ' ');
 	if (!res)
 		return (NULL);
+	i = 0;
+	while(res[i])
+		printf("%s\n", res[i++]);
 	if (validation(res) < 0)
 	{
 		free(res);
