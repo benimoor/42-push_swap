@@ -4,25 +4,19 @@ void reset () {
   printf("\033[0m");
 }
 
-void print_stack(t_list *start_a) {
-    printf("\033[0;36m\n\t---------START-----------\n");
-	 while (start_a)
+void	print_stack(t_list *start_a)
+{
+	printf("\033[0;36m\n\t-----------START---------\n");
+	while (start_a)
 	{
-    	printf("\033[1;33m\t|\tStack A[%d]\t|\n", start_a->n);
-     	start_a = start_a->next;
+		printf("\033[1;33m\t|\tStack A[%d]\t|\n", start_a->n);
+		start_a = start_a->next;
 	}
-	 printf("\033[0;36m\t-----------END-----------\n");
+	printf("\033[0;36m\t-----------END-----------\n");
 }
 
 int main(int argc, char **argv)
 {
-    // t_stack *stack = malloc(sizeof(t_stack));
-	// t_list *a = ft_lstnew(ft_atoi(argv[1]));
-	// t_list *b;
-	// int	n;
-	// b = NULL;
-	// stack->a = a;
-	// stack->b = b;	
 	// //fill_list(&stack->a, ft_atoi(argv[1]));
     // int i = 2;
 
@@ -34,7 +28,6 @@ int main(int argc, char **argv)
 	// 	fill_list(&stack->a, n);
 	// 	i++;
 	// }
-	// print_stack(stack->a);
 	// p_all(stack, B);
 	// print_stack(stack->a);
 	// print_stack(stack->b);
@@ -42,8 +35,16 @@ int main(int argc, char **argv)
 	// print_stack(stack->a);
 	// r_all(stack, A);
 	// print_stack(stack->a);
+    t_stack *stack = malloc(sizeof(t_stack));
+	t_list *a;
+	t_list *b;
+	a = malloc(sizeof(*a));
+	b = NULL;
+	stack->a = a;
+	stack->b = b;	
+	
 	char **test = valid_args(argv, argc);
-	for(int i = 0; test[i]; i++)
-		printf("[%d]%s\n", i, test[i]);
+	fill_stack(stack, test, argc);
+	print_stack(stack->a);
     return 0;
 }
