@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 22:04:21 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/07 22:35:20 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/07/15 20:39:16 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,11 @@ char **valid_args(char **argv, int argc)
 		str = ft_strjoin(str, tmp);
 		free(tmp);
 	}
-	free(str);
 	res = ft_split(str, ' ');
+	free(str);
 	if (!res)
 		return (NULL);
 	i = 0;
-	while(res[i])
-		printf("%s\n", res[i++]);
 	if (validation(res) < 0)
 	{
 		free(res);
@@ -82,14 +80,14 @@ int	fill_list(t_list **lst, int content)
 	return (0);
 }
 
-int	fill_stack(t_stack *stack, char **res, int argc)
+int	fill_stack(t_stack *stack, char **res)
 {
 	int	i;
 	int	n;
 
 	i = 1;
 	stack->a = ft_lstnew(ft_atoi(res[0]));
-	while (i < argc - 1)
+	while (res[i] != NULL)
 	{
 		n = ft_atoi(res[i]);
 		if (res[i] == NULL)

@@ -17,24 +17,6 @@ void	print_stack(t_list *start_a)
 
 int main(int argc, char **argv)
 {
-	// //fill_list(&stack->a, ft_atoi(argv[1]));
-    // int i = 2;
-
-    // while (i < argc)
-	// {
-	// 	n = ft_atoi(argv[i]);
-	// 	if (argv[i] == NULL)
-	// 		break ;
-	// 	fill_list(&stack->a, n);
-	// 	i++;
-	// }
-	// p_all(stack, B);
-	// print_stack(stack->a);
-	// print_stack(stack->b);
-	// s_all(stack, A);
-	// print_stack(stack->a);
-	// r_all(stack, A);
-	// print_stack(stack->a);
     t_stack *stack = malloc(sizeof(t_stack));
 	t_list *a;
 	t_list *b;
@@ -42,9 +24,13 @@ int main(int argc, char **argv)
 	b = NULL;
 	stack->a = a;
 	stack->b = b;	
-	
+	if(!argv[1] || !*argv[1]) 
+	{
+		put_msg("Enter arguments", 2);
+		exit(0);
+	}
 	char **test = valid_args(argv, argc);
-	fill_stack(stack, test, argc);
+	fill_stack(stack, test);
 	print_stack(stack->a);
     return 0;
 }
