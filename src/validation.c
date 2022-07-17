@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 22:04:21 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/15 20:39:16 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/07/17 14:24:38 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	validation(char **res)
 	return (1);
 }
 
-char **valid_args(char **argv, int argc)
+char	**valid_args(char **argv, int argc)
 {
 	int		i;
 	char	*str;
@@ -96,4 +96,20 @@ int	fill_stack(t_stack *stack, char **res)
 		i++;
 	}
 	return (0);
+}
+
+void	valid_check(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		i++;
+		if (!*argv[i]) 
+		{
+			put_msg("Enter valid arguments", 2);
+			exit(0);
+		}
+	}
 }

@@ -15,22 +15,22 @@ void	print_stack(t_list *start_a)
 	printf("\033[0;36m\t-----------END-----------\n");
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_stack *stack = malloc(sizeof(t_stack));
-	t_list *a;
-	t_list *b;
+	t_stack	*stack;
+	t_list	*a;
+	t_list	*b;
+	char	**test;
+
+	stack = malloc(sizeof(t_stack));
 	a = malloc(sizeof(*a));
 	b = NULL;
 	stack->a = a;
-	stack->b = b;	
-	if(!argv[1] || !*argv[1]) 
-	{
-		put_msg("Enter arguments", 2);
-		exit(0);
-	}
-	char **test = valid_args(argv, argc);
+	stack->b = b;
+	valid_check(argv);
+	test = valid_args(argv, argc);
 	fill_stack(stack, test);
 	print_stack(stack->a);
-    return 0;
+	//push_swap(stack);
+	return (0);
 }

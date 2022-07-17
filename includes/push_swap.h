@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:51:55 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/15 19:32:51 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/07/17 12:16:58 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(const char *src);
 int		validation(char **res);
-int	fill_stack(t_stack *stack, char **res);
-
+int		fill_stack(t_stack *stack, char **res);
+void	valid_check(char **argv);
 #endif
