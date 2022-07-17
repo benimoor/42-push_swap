@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	valid_check(argv);
 	test = valid_args(argv, argc);
 	fill_stack(stack, test);
-	print_stack(stack->a);
-	//push_swap(stack);
+	//print_stack(stack->a);
+	push_swap(stack);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
+/*   By: smikayel <smikayel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:51:55 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/17 12:16:58 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/07/17 15:10:15 by smikayel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,7 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(const char *src);
 int		validation(char **res);
 int		fill_stack(t_stack *stack, char **res);
+void	push_swap(t_stack *stack);
+void	print_stack(t_list *start_a);
 void	valid_check(char **argv);
 #endif
