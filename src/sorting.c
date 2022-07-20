@@ -6,7 +6,7 @@
 /*   By: smikayel <smikayel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 12:28:13 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/17 20:04:43 by smikayel         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:32:26 by smikayel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,29 +49,6 @@ void	sort_3(t_stack *stack)
 	}
 } 
 
-int couynt_shift(t_list *b,int num, int min)
-{
-	int count;
-	
-	count = 0;
-	while (b->next != NULL && b->n < num && b->n != min)
-	{
-		b = b->next;
-		count++;
-	}
-	printf("%d", count);
-	return (count);
-}
-
-void shift_with_count(t_stack *stack, int count)
-{
-	while (count) 
-	{
-		r_all(stack, B);
-		count--;
-	}
-	p_all(stack, B);
-}
 
 void sort_push(t_stack *stack, int num, int *min, int *max)
 {
@@ -117,30 +94,63 @@ void sort_push(t_stack *stack, int num, int *min, int *max)
 	}
 }
 
-void	get_a_stack(t_stack *stack, int *a, int *b, int *c)
+void sort_ab_push(t_stack *stack, int num, int *min, int *max)
 {
-	t_list	*cursor;
-	int	n;
-	
-	cursor = stack->a;
-	while(!cursor->next)
+	int n;
+
+	n = 0;
+	if (num < *min)
 	{
-		
+		p_all(stack, A);
+		*min = num;
+	}
+	else if (num > *max)
+	{
+		p_all(stack, A);
+		r_all(stack, A);
+		*max = num;
+	}
+	else 
+	{
+		while (num > stack->a->n)
+		{
+			r_all(stack, A);
+			n++;
+		}
+		p_all(stack, A);
+		while (n > 0 && stack->b->n < stack->a->n)
+		{
+			n--;
+			rr_all(stack, A);
+		}
+		// ^^^^^^^^^^^^^^^^^^^^^^^
+		r_all(stack, A);
+		n++;
+		p_all(stack, A);
+		while (n > 0)
+		{
+			rr_all(stack, A);
+			n--;
+		}
 	}
 }
 
-void merge_ab(t_stack *stack, int *min, int *max)
+void marge(t_stack *stack)
 {
+	int min;
+	int max;
 
+	min = stack->a->n;
+	max = stack->a->next->next->n;
+	while (stack->b->next != NULL)
+		sort_ab_push(stack,  stack->b->n, &min, &max);
+	p_all(stack, A);
 }
 
 void	push_swap(t_stack *stack)
 {
 	int max;
 	int min;
-	int a;
-	int b;
-	int c;
 	
 	p_all(stack, B);
 	p_all(stack, B);
@@ -148,18 +158,13 @@ void	push_swap(t_stack *stack)
 		s_all(stack, B);
 	min = stack->b->n;
 	max = stack->b->next->n;
-	get_a_stack(stack, &a, &b, &c);
 	while(stack->a->next->next->next != NULL)
 		sort_push(stack, stack->a->n, &min, &max);		
 	rr_all(stack, B);
 	sort_3(stack);
-
-//***************************************************
-
-	merge_ab(stack, &min, &max);
-
+	marge(stack);
 	print_stack(stack->a);
-	print_stack(stack->b);
+
 
 	return ;	
 }
