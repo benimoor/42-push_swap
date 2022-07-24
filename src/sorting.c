@@ -6,117 +6,12 @@
 /*   By: smikayel <smikayel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 12:28:13 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/20 21:32:26 by smikayel         ###   ########.fr       */
+/*   Updated: 2022/07/24 20:35:52 by smikayel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-int length(t_list *st)
-{
-	int length;
 
-	length = 0;
-	while(st)
-	{
-		length++; 
-		st = st->next;
-	}
-	return (length);
-}
-
-void swap_arr_sorting(int* xp, int* yp)
-{
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
-}
-
-void selectionSort(int n, int *arr)
-{
-    int i;
-	int j;
-	int min_idx;
-    i = 0;
-	while (i < n- 1)
-	{
-        min_idx = i;
-		j = i + 1;
-		while (j < n)
-		{
-            if (arr[j] < arr[min_idx])
-                min_idx = j;
-			j++;
-		}
-        swap_arr_sorting(&arr[min_idx], &arr[i]);
-		i++;
-	}
-}
-
-void fil_arr(t_list *st, int *arr)
-{
-	int i;
-
-	i = 0;
-	while (st)
-	{
-		arr[i] = st->n;
-		st = st->next;
-		i++;
-	}
-}
-
-int mid_elemet_of_stack(t_list *st)
-{
-	int *alt_arr;
-	int mid;
-
-	alt_arr = malloc(length(st) * sizeof(int));
-	fil_arr(st, alt_arr);
- 	selectionSort(length(st), alt_arr);
-	mid = alt_arr[length(st) / 2];
-	free(alt_arr);
-	return (mid);
-}
-
-int chunk_arr_length(t_list *st, int mid)
-{
-	int length;
-
-	length = 0;
-	while(st)
-	{
-		if (st->n < mid)
-			length++; 
-		st = st->next;
-	}
-	return (length);
-}
-
-int *chunk(t_stack *stack)
-{
-	int mid;
-	int prev_length;
-	int i;
-	int *chunk_arr;
-	
-	mid = mid_elemet_of_stack(stack->a);
-	chunk_arr = malloc(chunk_arr_length(stack->a, mid) * sizeof(int));
-	i = 0;
-	prev_length = length(stack->a) / 2 + (length(stack->a) % 2);
-	while (length(stack->a) > prev_length)
-	{
-		if (stack->a->n < mid)
-		{
-			chunk_arr[i] = stack->a->n;
-			p_all(stack, B);
-			i++;
-		}
-		else 
-			r_all(stack, A);
-	}
-	return (chunk_arr);
-}
- 
 void print_chunk(int *chunk) // will be deleted
 {
 	int i = 0;
@@ -130,70 +25,59 @@ void print_chunk(int *chunk) // will be deleted
 	printf("\n");
 }
 
-int chunks(t_stack *stack, int **chunks_arr)
+int get_mid_of_chunk(int *arr)
 {
-	int i;
-
-	i = 0;
-	while (length(stack->a) > 2)
-	{
-		chunks_arr[i] = chunk(stack);	
-		i++;
-	}
-	return (i - 1);
-}
-
-void sorting_first_3(t_stack *stack)
-{
-	if (stack->a->n > stack->a->next->n)
-		s_all(stack, A);
-	p_all(stack, A);
-}
-
-int count_length_arr(int *arr)
-{
+	int mid;
 	int length;
 
-	length = (int)sizeof(arr) / (int)sizeof(arr[0]);
-	return (length);
+	length = count_length_arr(arr);
+	selectionSort(length, arr);
+	mid = arr[length / 2];
+	return (mid);
 }
 
-void sort_swap(t_stack *stack)
-{
-	if (stack->a->n < stack->a->next->n)
-		s_all(stack, B);
-	p_all(stack, A);
-	p_all(stack, A);
-}
+// void mid_big_up(t_stack *stack, int chunk_length, int *arr, int mid)
+// {
+// 	int i;
+	
+// 	i = 0;
+// 	while (i < (chunk_arr_length - 1))
+// 	{
+		
+// 	}
+// }
 
-void analis_sort(t_stack *stack, int last_chunk_index, int **chunks_arr)
-{
-	(void)stack;
-	// int mid;
-	// last_chunk_index--;
-	while (last_chunk_index)
-	{
-		print_chunk(chunks_arr[last_chunk_index - 1]);
-	// 	mid = count_length_arr(chunks_arr[last_chunk_index]) / 2;
-	// 	// mid = chunks_arr[last_chunk_index][mid];
-	// 	printf("%d \n", mid);
-	// 	/// petqa array chanker anel u sortavorel 
-		last_chunk_index--;
-	}
-	// printf("%d \n", mid);
-}
+// void transfer_chunk_sort_back(t_stack *stack, int *arr)
+// {
+// 	int next;
+// 	int mid;
+// 	int chunk_length;
+
+// 	next = 1;
+// 	chunk_length = count_length_arr(arr);
+// 	// while (next)
+// 	// {
+// 		(void)stack;
+// 		mid = get_mid_of_chunk(arr);
+// 		printf("%d", mid);
+// 		mid_big_up(stack, chunk_length, arr, mid);
+// 	// }
+// }
 
 void sorting_rest(t_stack *stack, int last_chunk_index, int **chunks_arr)
 {
-	if (count_length_arr(chunks_arr[last_chunk_index - 1]) == 2)
+	if (count_length_arr(chunks_arr[last_chunk_index]) == 1)
+	{
+		p_all(stack, A);
+		last_chunk_index--;
+	}
+	if (count_length_arr(chunks_arr[last_chunk_index]) == 2)
 	{
 		sort_swap(stack);
 		last_chunk_index--;
 	}
-	// while (length(stack->b) > 1)
-	// {
-		analis_sort(stack, last_chunk_index, chunks_arr);
-	// }
+	print_chunk(chunks_arr[last_chunk_index]);	
+	// transfer_chunk_sort_back(stack, chunks_arr[last_chunk_index]);
 }
 
 void sorting(t_stack *stack)
@@ -203,17 +87,22 @@ void sorting(t_stack *stack)
 
 	chunks_arr = malloc(sizeof(int *) * length(stack->a));
 	last_chunk_index = chunks(stack, chunks_arr);
-	sorting_first_3(stack);
+	sorting_first_2(stack);
 	sorting_rest(stack, last_chunk_index, chunks_arr);
+	
 }
 
+// 4 -5
+// 7 8 6
+// -5 4 6 7 8
 void	push_swap(t_stack *stack)
 {
 	// coment for testings
 	print_stack(stack->a);
 	print_stack(stack->b);
-	// sorting(stack); // +
-	p_all(stack, B);
+	/// 2 u poqr arraynery check anel nor sortel 
+	sorting(stack); // +
+	// p_all(stack, B);
 	print_stack(stack->a);
 	print_stack(stack->b);
 
