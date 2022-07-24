@@ -11,160 +11,211 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	sorted(t_list *a)
+int length(t_list *st)
 {
-	while (a->next)
+	int length;
+
+	length = 0;
+	while(st)
 	{
-		if(a->n < a->next->n)
-			a = a->next;
-		else
-			return (-1);
+		length++; 
+		st = st->next;
 	}
-	return (0);
-		
+	return (length);
 }
 
-void	sort_3(t_stack *stack)
+void swap_arr_sorting(int* xp, int* yp)
 {
-	if ((stack->a->n < stack->a->next->n) && (stack->a->next->n >
-	 stack->a->next->next->n))
-	{
-		rr_all(stack, A);
-		if(sorted(stack->a) < 0)
-			s_all(stack, A);
-	}
-	else if (stack->a->n > stack->a->next->n && stack->a->next->n <
-	stack->a->next->next->n)
-	{
-		rr_all(stack, A);
-		if (sorted(stack->a) < 0)
-			sort_3(stack);
-	}
-	else if (stack->a->n > stack->a->next->n &&
-	stack->a->next->n > stack->a->next->next->n)
-	{
-		r_all(stack, A);
-		s_all(stack, A);
-	}
-} 
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
 
-
-void sort_push(t_stack *stack, int num, int *min, int *max)
+void selectionSort(int n, int *arr)
 {
-	int tmp;
-	int changed;
+    int i;
+	int j;
+	int min_idx;
+    i = 0;
+	while (i < n- 1)
+	{
+        min_idx = i;
+		j = i + 1;
+		while (j < n)
+		{
+            if (arr[j] < arr[min_idx])
+                min_idx = j;
+			j++;
+		}
+        swap_arr_sorting(&arr[min_idx], &arr[i]);
+		i++;
+	}
+}
+
+void fil_arr(t_list *st, int *arr)
+{
+	int i;
+
+	i = 0;
+	while (st)
+	{
+		arr[i] = st->n;
+		st = st->next;
+		i++;
+	}
+}
+
+int mid_elemet_of_stack(t_list *st)
+{
+	int *alt_arr;
+	int mid;
+
+	alt_arr = malloc(length(st) * sizeof(int));
+	fil_arr(st, alt_arr);
+ 	selectionSort(length(st), alt_arr);
+	mid = alt_arr[length(st) / 2];
+	free(alt_arr);
+	return (mid);
+}
+
+int chunk_arr_length(t_list *st, int mid)
+{
+	int length;
+
+	length = 0;
+	while(st)
+	{
+		if (st->n < mid)
+			length++; 
+		st = st->next;
+	}
+	return (length);
+}
+
+int *chunk(t_stack *stack)
+{
+	int mid;
+	int prev_length;
+	int i;
+	int *chunk_arr;
 	
-	tmp = 0;
-	changed = 0;
-	while (stack->b->next != NULL)
+	mid = mid_elemet_of_stack(stack->a);
+	chunk_arr = malloc(chunk_arr_length(stack->a, mid) * sizeof(int));
+	i = 0;
+	prev_length = length(stack->a) / 2 + (length(stack->a) % 2);
+	while (length(stack->a) > prev_length)
 	{
-		if (num < *min)
+		if (stack->a->n < mid)
 		{
-			rr_all(stack, B);
+			chunk_arr[i] = stack->a->n;
 			p_all(stack, B);
-			r_all(stack, B);
-			r_all(stack, B);
-			changed = 1;
-			break;
+			i++;
 		}
-		else if (num < stack->b->n)
-		{
-			r_all(stack, B);
-			tmp++;
-		} 
-		else
-			break;
-	}
-	if (!changed)
-		p_all(stack, B);
-	while (tmp != 0)
-	{
-		rr_all(stack, B);
-		tmp--;
-	}
-	if (num < *min)
-		*min = num;
-	else if (num > *max)
-	{
-		rr_all(stack, B);
-		s_all(stack, B);
-		r_all(stack,B);
-		*max = num;
-	}
-}
-
-void sort_ab_push(t_stack *stack, int num, int *min, int *max)
-{
-	int n;
-
-	n = 0;
-	if (num < *min)
-	{
-		p_all(stack, A);
-		*min = num;
-	}
-	else if (num > *max)
-	{
-		p_all(stack, A);
-		r_all(stack, A);
-		*max = num;
-	}
-	else 
-	{
-		while (num > stack->a->n)
-		{
+		else 
 			r_all(stack, A);
-			n++;
-		}
-		p_all(stack, A);
-		while (n > 0 && stack->b->n < stack->a->n)
-		{
-			n--;
-			rr_all(stack, A);
-		}
-		// ^^^^^^^^^^^^^^^^^^^^^^^
-		r_all(stack, A);
-		n++;
-		p_all(stack, A);
-		while (n > 0)
-		{
-			rr_all(stack, A);
-			n--;
-		}
 	}
+	return (chunk_arr);
+}
+ 
+void print_chunk(int *chunk) // will be deleted
+{
+	int i = 0;
+
+	printf("chunk=========\n");
+	while (chunk[i])
+	{
+		printf("%d   ",chunk[i]);
+		i++;
+	}
+	printf("\n");
 }
 
-void marge(t_stack *stack)
+int chunks(t_stack *stack, int **chunks_arr)
 {
-	int min;
-	int max;
+	int i;
 
-	min = stack->a->n;
-	max = stack->a->next->next->n;
-	while (stack->b->next != NULL)
-		sort_ab_push(stack,  stack->b->n, &min, &max);
+	i = 0;
+	while (length(stack->a) > 2)
+	{
+		chunks_arr[i] = chunk(stack);	
+		i++;
+	}
+	return (i - 1);
+}
+
+void sorting_first_3(t_stack *stack)
+{
+	if (stack->a->n > stack->a->next->n)
+		s_all(stack, A);
 	p_all(stack, A);
+}
+
+int count_length_arr(int *arr)
+{
+	int length;
+
+	length = (int)sizeof(arr) / (int)sizeof(arr[0]);
+	return (length);
+}
+
+void sort_swap(t_stack *stack)
+{
+	if (stack->a->n < stack->a->next->n)
+		s_all(stack, B);
+	p_all(stack, A);
+	p_all(stack, A);
+}
+
+void analis_sort(t_stack *stack, int last_chunk_index, int **chunks_arr)
+{
+	(void)stack;
+	// int mid;
+	// last_chunk_index--;
+	while (last_chunk_index)
+	{
+		print_chunk(chunks_arr[last_chunk_index - 1]);
+	// 	mid = count_length_arr(chunks_arr[last_chunk_index]) / 2;
+	// 	// mid = chunks_arr[last_chunk_index][mid];
+	// 	printf("%d \n", mid);
+	// 	/// petqa array chanker anel u sortavorel 
+		last_chunk_index--;
+	}
+	// printf("%d \n", mid);
+}
+
+void sorting_rest(t_stack *stack, int last_chunk_index, int **chunks_arr)
+{
+	if (count_length_arr(chunks_arr[last_chunk_index - 1]) == 2)
+	{
+		sort_swap(stack);
+		last_chunk_index--;
+	}
+	// while (length(stack->b) > 1)
+	// {
+		analis_sort(stack, last_chunk_index, chunks_arr);
+	// }
+}
+
+void sorting(t_stack *stack)
+{
+	int **chunks_arr;
+	int last_chunk_index;
+
+	chunks_arr = malloc(sizeof(int *) * length(stack->a));
+	last_chunk_index = chunks(stack, chunks_arr);
+	sorting_first_3(stack);
+	sorting_rest(stack, last_chunk_index, chunks_arr);
 }
 
 void	push_swap(t_stack *stack)
 {
-	int max;
-	int min;
-	
-	p_all(stack, B);
-	p_all(stack, B);
-	if (stack->b->n > stack->b->next->n)
-		s_all(stack, B);
-	min = stack->b->n;
-	max = stack->b->next->n;
-	while(stack->a->next->next->next != NULL)
-		sort_push(stack, stack->a->n, &min, &max);		
-	rr_all(stack, B);
-	sort_3(stack);
-	marge(stack);
+	// coment for testings
 	print_stack(stack->a);
-
+	print_stack(stack->b);
+	// sorting(stack); // +
+	p_all(stack, B);
+	print_stack(stack->a);
+	print_stack(stack->b);
 
 	return ;	
 }
