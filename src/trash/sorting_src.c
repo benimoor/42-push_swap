@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_src.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smikayel <smikayel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 17:46:53 by smikayel          #+#    #+#             */
-/*   Updated: 2022/07/24 17:56:56 by smikayel         ###   ########.fr       */
+/*   Updated: 2022/07/27 20:39:05 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,4 @@ void sort_swap(t_stack *stack)
 		s_all(stack, B);
 	p_all(stack, A);
 	p_all(stack, A);
-}
+} 	

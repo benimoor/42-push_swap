@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smikayel <smikayel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:51:55 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/24 17:48:36 by smikayel         ###   ########.fr       */
+/*   Updated: 2022/07/31 13:31:50 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_list
 {
 	int				n;
 	struct s_list	*next;
-	// struct s_list	*prev;
 }	t_list;
 
 typedef struct s_stack
@@ -32,6 +31,18 @@ typedef struct s_stack
 	t_list	*b;
 	int		len;
 }	t_stack;
+
+typedef struct s_qyal
+{
+	int	num;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
+}	t_qyal;
 
 typedef enum mode_e
 {
@@ -66,17 +77,23 @@ int		fill_stack(t_stack *stack, char **res);
 void	push_swap(t_stack *stack);
 void	print_stack(t_list *start_a);
 void	valid_check(char **argv);
-
-void selectionSort(int n, int *arr);
-void swap_arr_sorting(int* xp, int* yp);
-void fil_arr(t_list *st, int *arr);
-int *chunk(t_stack *stack);
-int chunks(t_stack *stack, int **chunks_arr);
-int length(t_list *st);
-int mid_elemet_of_stack(t_list *st);
-void sorting_first_2(t_stack *stack);
-int count_length_arr(int *arr);
-void sort_swap(t_stack *stack);
-int chunk_arr_length(t_list *st, int mid);
+int		sorted(t_list *a);
+void	sort_3(t_stack *stack);
+int		get_min(t_list *a);
+void	sorting(t_stack *stack);
+int		get_med(t_list *a);
+void	push_to_b(t_stack *stack);
+void	get_presorted_a(t_stack *stack);
+// void selectionSort(int n, int *arr);
+// void swap_arr_sorting(int* xp, int* yp);
+// void fil_arr(t_list *st, int *arr);
+// int *chunk(t_stack *stack);
+// int chunks(t_stack *stack, int **chunks_arr);
+// int length(t_list *st);
+// int mid_elemet_of_stack(t_list *st);
+// void sorting_first_2(t_stack *stack);
+// int count_length_arr(int *arr);
+// void sort_swap(t_stack *stack);
+// int chunk_arr_length(t_list *st, int mid);
 
 #endif
