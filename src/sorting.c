@@ -3,240 +3,175 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
+/*   By: smikayel <smikayel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 11:09:53 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/31 14:44:06 by ergrigor         ###   ########.fr       */
+/*   Created: 2022/07/17 12:28:13 by ergrigor          #+#    #+#             */
+/*   Updated: 2022/08/02 20:59:32 by smikayel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sorted(t_list *a)
+void indexing(t_list *a, int *arr, int size)
 {
-	while (a->next)
-	{
-		if (a->n < a->next->n)
-			a = a->next;
-		else
-			return (-1);
-	}
-	return (0);
-}
-
-void	sort_3(t_stack *stack)
-{
-	if ((stack->a->n < stack->a->next->n)
-		&& (stack->a->next->n > stack->a->next->next->n))
-	{
-		rr_all(stack, A);
-		if (sorted(stack->a) < 0)
-			s_all(stack, A);
-	}
-	else if (stack->a->n > stack->a->next->n
-		&& stack->a->next->n < stack->a->next->next->n)
-	{
-		rr_all(stack, A);
-		if (sorted(stack->a) < 0)
-			sort_3(stack);
-	}
-	else if (stack->a->n > stack->a->next->n
-		&& stack->a->next->n > stack->a->next->next->n)
-	{
-		r_all(stack, A);
-		s_all(stack, A);
-	}
-}
-
-int	get_min(t_list *a)
-{
-	int		n;
-	t_list	*cursor;
-
-	cursor = a;
-	n = cursor->n;
-	while (cursor->next)
-	{
-		if (n > cursor->next->n)
-			n = cursor->next->n;
-		cursor = cursor->next;
-	}
-	return (n);
-}
-
-int	get_max(t_list *a)
-{
-	int		n;
-	t_list	*cursor;
-
-	cursor = a;
-	n = cursor->n;
-	while (cursor->next)
-	{
-		if (n < cursor->next->n)
-			n = cursor->next->n;
-		cursor = cursor->next;
-	}
-	return (n);
-}
-
-int	sort_get_med(int *arr, int size)
-{
-	int	x;
-	int	y;
-	int	temp;
-
-	x = 0;
-	while (x < size - 1)
-	{
-		y = x;
-		while (y < size - 1)
-		{
-			if (arr[y] > arr[y + 1])
-			{
-				temp = arr[y];
-				arr[y] = arr[y + 1];
-				arr[y + 1] = temp;
-			}
-			y++;
-		}
-		x++;
-	}
-	return (arr[size / 2]);
-}
-
-int	get_med(t_list *a)
-{
-	int	size;
-	int	i;
-	int	*arr;
-	int	res;
-
-	size = ft_lstsize(a);
-	arr = malloc(size);
-	i = 0;
-	if (!arr)
-	{
-		put_msg("Error to get median", 2);
-		exit (-1);
-	}
-	while (i < size && a)
-	{
-		arr[i] = a->n;
-		i++;
-		a = a->next;
-	}
-	res = sort_get_med(arr, size);
-	free(arr);
-	return (res);
-}
-
-int	get_pos(t_stack *stack, int num)
-{
-	t_list	*cursor;
+	int i;
+	int j;
+	t_list *cursor;
 	
-	cursor = stack->a;
-	while(cursor)
+	i = 0;
+	cursor = a;
+	while (i < size)
 	{
-		if (cursor->n)
+		j = 0;
+
+		while (cursor->n != arr[j])
+		{
+			j++;
+		}
+		cursor->index = j;
+		cursor = cursor->next;
+		i++;
 	}
 }
-t_qyal	get_min_qyal(t_stack *stack)
-{
-	t_qyal	*min_qyal;
-	t_list	*cursor;
-	int		pos;
 
-	cursor = stack->b;
-	min_qyal = malloc(sizeof(t_qyal));
-	while (cursor)
+void swap_arr_sorting(int* xp, int* yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+
+void selectionSort(int *arr, t_list *a)
+{
+    int i;
+	int j;
+	int min_idx;
+	int n;
+
+	n = ft_lstsize(a);
+    i = 0;
+	while (i < n - 1)
 	{
-		min_qyal->num = cursor->n;
-		pos = get_pos(stack, min_qyal->num);
-		
+        min_idx = i;
+		j = i + 1;
+		while (j < n)
+		{
+            if (arr[j] < arr[min_idx])
+                min_idx = j;
+			j++;
+		}
+        swap_arr_sorting(&arr[min_idx], &arr[i]);
+		i++;
 	}
-	return (min_qyal);
+	indexing(a, arr, n);
+}
+
+int matematikakan_hashvarkner(int sz)
+{
+	if(sz <= 100)
+		return ((15 * sz) / 100);
+	else
+		return((30 * sz) / 500);
 }
 
 void	push_to_a(t_stack *stack)
 {
-	t_qyal	min_qyal;
+	t_list		*first;
+	long int	place;
+	long int	sz;
 
-	min_qyal = get_min_qyal(stack);
-}
-
-void	push_to_b(t_stack *stack)
-{
-	int		lst_size;
-	int		min;
-	int		max;
-	int		med;
-	t_list	*cursor;
-
-	min = get_min(stack->a);
-	med = get_med(stack->a);
-	max = get_max(stack->a);
-	lst_size = ft_lstsize(stack->a);
-	while (lst_size != 4)
+	sz = ft_lstsize(stack->b);
+	place = 0;
+	while (stack->b)
 	{
-		cursor = stack->a;
-		lst_size = ft_lstsize(cursor);
-		if (cursor->n == min || cursor->n == med || cursor->n == max)
-			r_all(stack, A);
-		p_all(stack, B);
-		cursor = cursor->next;
-	}
-}
-
-void	get_presorted_a(t_stack *stack)
-{
-	if ((stack->a->n < stack->a->next->n
-			&& stack->a->n > stack->a->next->next->n)
-		|| (stack->a->n > stack->a->next->n
-			&& stack->a->next->n < stack->a->next->next->n))
-		return ;
-	else
-	{
-		if (stack->a->n < stack->a->next->n
-			&& stack->a->next->n < stack->a->next->next->n)
-			r_all(stack, A);
-		else
+		first = stack->b;
+		while (sz - 1 != stack->b->index)
 		{
-			s_all(stack, A);
-			get_presorted_a(stack);
+			place++;
+			stack->b = stack->b->next;
 		}
+		stack->b = first;
+		if (place <= sz / 2)
+			while (stack->b->index != sz - 1)
+				r_all(stack, B);
+		else if (place > sz / 2)
+			while (stack->b->index != sz - 1)
+				rr_all(stack, B);
+		p_all(stack, A);
+		place = 0;
+		sz--;
 	}
 }
 
-void	push_swap(t_stack *stack)
+void push_to_b(t_stack *stack)
 {
-	if (sorted(stack->a) == 0)
-		return ;
-	push_to_b(stack);
-	get_presorted_a(stack);
+	long int	count;
+	long int	range;
+	long int	sz;
+
+	count = 0;
+	sz = ft_lstsize(stack->a);
+	while (stack->a)
+	{
+		range = matematikakan_hashvarkner(sz);
+		if (stack->a->index <= count)
+		{
+			print_stack(stack->a);
+			p_all(stack, B);
+			print_stack(stack->b);
+			r_all(stack, B);
+			print_stack(stack->a);
+
+			count++;
+		}
+		else if (stack->a->index <= count + range)
+		{
+			p_all(stack, B);
+			count++;
+		}
+		else
+			r_all(stack, A);
+	}
+	print_stack(stack->a);
+	print_stack(stack->b);
 	push_to_a(stack);
 }
 
-void	sorting(t_stack *stack)
-{
-	int	size;
 
+void get_indexs(t_list *cursor)
+{
+	int i;
+	int lst_size;
+	int *arr;
+	t_list *a;
+
+	a = cursor;
+	lst_size = ft_lstsize(a);
+	arr = malloc(lst_size * sizeof(int));
+	i = 0;
+	while (i < lst_size)
+	{
+		arr[i] = a->n;
+		a = a->next;
+		i++;
+	}
+	selectionSort(arr, cursor);
+	free(arr);
+}
+
+
+void	push_swap(t_stack *stack)
+{
+	// print_stack(stack->a);
+	// print_stack(stack->b);
+	// printf("=========[Start]=========");
+	int	size;
+	
+	get_indexs(stack->a);
 	size = ft_lstsize(stack->a);
-	if (size == 1)
+	if (size > 5)
 	{
-		return ;
+		push_to_b(stack);
 	}
-	else if (size == 2)
-	{
-		if (stack->a->n < stack->b->next->n)
-			s_all(stack, A);
-	}
-	else if (size == 3)
-	{
-		sort_3(stack);
-	}
-	else
-	{
-		push_swap(stack);
-	}
+	return ;	
 }

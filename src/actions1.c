@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
+/*   By: smikayel <smikayel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 22:01:56 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/31 13:45:23 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/08/02 21:05:58 by smikayel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,37 @@ int	push(t_list **dst, t_list **src)
 	tmp = *src;
 	if ((*src)->next)
 		*src = (*src)->next;
-	tmp->next = NULL;
 	ft_lstadd_front(dst, tmp);
+	if((*src)->next == NULL)
+		*src = 0x0;
+	return (0);
+}
+
+int	ft_pb(t_stack *stack)
+{
+	t_list	*tmp;
+
+	tmp = stack->a;
+	stack->a = stack->a->next;
+	tmp->next = NULL;
+	if (!stack->b)
+		stack->b = tmp;
+	else
+		ft_lstadd_front(&stack->b, tmp);
+	return (0);
+}
+
+int	ft_pa(t_stack *stack)
+{
+	t_list	*tmp;
+
+	tmp = stack->b;
+	stack->b = stack->b->next;
+	tmp->next = NULL;
+	if (!stack->a)
+		stack->a = tmp;
+	else
+		ft_lstadd_front(&stack->a, tmp);
 	return (0);
 }
 
@@ -42,13 +71,13 @@ int	p_all(t_stack *stack, t_mode mod)
 		return (-1);
 	if (stack->b != NULL && mod == A)
 	{
-		if (push(&stack->a, &stack->b) < 0)
+		if (ft_pa(stack) < 0)
 			return (-1);
 		put_msg("pa\n", 1);
 	}
 	else if (stack->a != NULL && mod == B)
 	{
-		if (push(&stack->b, &stack->a) < 0)
+		if (ft_pb(stack) < 0)
 			return (-1);
 		put_msg("pb\n", 1);
 	}
