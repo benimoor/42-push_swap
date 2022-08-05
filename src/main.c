@@ -1,19 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/05 17:07:33 by ergrigor          #+#    #+#             */
+/*   Updated: 2022/08/05 17:07:36 by ergrigor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-void reset () {
-  printf("\033[0m");
-}
-
-void	print_stack(t_list *start_a)
-{
-	printf("\033[0;36m\n\t-----------START---------\n");
-	while (start_a)
-	{
-		printf("\033[1;33m\t|\tStack A[%d] | index[%d]\t|\n", start_a->n, start_a->index);
-		start_a = start_a->next;
-	}
-	printf("\033[0;36m\t-----------END-----------\n");
-}
 
 int	main(int argc, char **argv)
 {
@@ -30,7 +27,6 @@ int	main(int argc, char **argv)
 	valid_check(argv);
 	test = valid_args(argv, argc);
 	fill_stack(stack, test);
-	print_stack(stack->a);
 	push_swap(stack);
 	return (0);
 }

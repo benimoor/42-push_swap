@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smikayel <smikayel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 22:01:56 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/08/02 21:05:58 by smikayel         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:10:48 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	push(t_list **dst, t_list **src)
 	if ((*src)->next)
 		*src = (*src)->next;
 	ft_lstadd_front(dst, tmp);
-	if((*src)->next == NULL)
+	if ((*src)->next == NULL)
 		*src = 0x0;
 	return (0);
 }
@@ -86,48 +86,5 @@ int	p_all(t_stack *stack, t_mode mod)
 		put_msg("Error in sort (pa or pb)\n", 2);
 		return (-1);
 	}
-	return (0);
-}
-
-int	s_all(t_stack *stack, t_mode mod)
-{
-	if (mod == A)
-	{
-		if (swap(stack->a) < 0)
-			return (-1);
-		put_msg("sa\n", 1);
-	}
-	else if (mod == B)
-	{
-		if (swap(stack->b) < 0)
-			return (-1);
-		put_msg("sb\n", 1);
-	}
-	else if (mod == BOTH)
-	{
-		if (swap(stack->a) < 0 && swap(stack->b) < 0)
-			return (-1);
-		put_msg("ss\n", 1);
-	}
-	else
-	{
-		put_msg("Error in sort (sa or sb or ss)\n", 2);
-		return (-1);
-	}
-	return (0);
-}
-
-int	shift(t_list **lst)
-{
-	t_list	*iter;
-	t_list	*start;
-	t_list	*cur;
-
-	start = (*lst)->next;
-	cur = *lst;
-	iter = ft_lstlast(*lst);
-	iter->next = cur;
-	cur->next = NULL;
-	*lst = start;
 	return (0);
 }

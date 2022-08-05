@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 22:04:21 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/17 14:27:34 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:17:21 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ char	**valid_args(char **argv, int argc)
 	i = 0;
 	if (validation(res) < 0)
 	{
-		free(res);
-		put_msg("Duplicate numbers", 2);
+		put_msg("Error", 2);
 		exit (-1);
 	}
 	return (res);
@@ -105,7 +104,7 @@ void	valid_check(char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		if (!argv[i] || !*argv[i]) 
+		if (!argv[i] || !*argv[i])
 		{
 			put_msg("Enter valid arguments", 2);
 			exit(0);

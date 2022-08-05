@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:48:13 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/07/07 22:04:51 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:16:58 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	ft_atoi(const char *str)
 	if (*str != '\0')
 	{
 		put_msg("Number is incorrect", 2);
-		exit(-1);	
+		exit (-1);
 	}
 	return (res * is_negative);
 }

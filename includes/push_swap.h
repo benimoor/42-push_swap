@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smikayel <smikayel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:51:55 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/08/02 20:18:10 by smikayel         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:16:14 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <limits.h>
-
 
 typedef struct s_list
 {
@@ -64,19 +63,17 @@ char	*ft_strdup(const char *src);
 int		validation(char **res);
 int		fill_stack(t_stack *stack, char **res);
 void	push_swap(t_stack *stack);
-void	print_stack(t_list *start_a);
 void	valid_check(char **argv);
-
-void selectionSort(int *arr, t_list *a);
-void swap_arr_sorting(int* xp, int* yp);
-void fil_arr(t_list *st, int *arr);
-int *chunk(t_stack *stack);
-int chunks(t_stack *stack, int **chunks_arr);
-int length(t_list *st);
-int mid_elemet_of_stack(t_list *st);
-void sorting_first_2(t_stack *stack);
-int count_length_arr(int *arr);
-void sort_swap(t_stack *stack);
-int chunk_arr_length(t_list *st, int mid);
+void	selection_sort(int *arr, t_list *a);
+void	swap_arr_sorting(int *xp, int *yp);
+void	sort2(t_stack *stack);
+void	sort3(t_stack *stack);
+void	sort5(t_stack *stack);
+void	push_min(t_stack *stack, int min);
+int		matematikakan_hashvarkner(int sz);
+void	push_to_b(t_stack *stack);
+void	push_to_a(t_stack *stack);
+int		sorted(t_list *a);
+void	get_indexs(t_list *cursor);
 
 #endif
