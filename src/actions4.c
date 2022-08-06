@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 17:10:41 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/08/05 17:11:37 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/08/06 18:10:23 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,9 @@ void	push_min(t_stack *stack, int min)
 
 void	sort5(t_stack *stack)
 {
-	int		size;
 	t_list	*cursor;
 	int		min;
 
-	size = ft_lstsize(stack->a);
 	while (ft_lstsize(stack->a) != 3)
 	{
 		cursor = stack->a;

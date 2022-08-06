@@ -6,11 +6,24 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 17:07:33 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/08/06 15:24:48 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/08/06 18:15:45 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_stack(t_list **a)
+{
+	t_list	*tmp;
+
+	while (*a)
+	{
+		if ((*a)->next)
+			tmp = (*a)->next;
+		free(*a);
+		*a = tmp;
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -35,7 +48,6 @@ int	main(int argc, char **argv)
 	while (test[i])
 		free(test[i++]);
 	free(test);
-	free(stack->a);
 	free(stack);
 	free(a);
 	return (0);
