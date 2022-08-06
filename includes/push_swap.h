@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:51:55 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/08/05 17:16:14 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/08/06 13:50:51 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef enum mode_e
 }	t_mode;
 
 int		s_all(t_stack *stack, t_mode mod);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		p_all(t_stack *stack, t_mode mod);
 int		r_all(t_stack *stack, t_mode mod);
 int		rr_all(t_stack *stack, t_mode mod);

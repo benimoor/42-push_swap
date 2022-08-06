@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/05 17:07:33 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/08/06 15:24:48 by ergrigor         ###   ########.fr       */
+/*   Created: 2022/03/18 20:10:47 by ergrigor          #+#    #+#             */
+/*   Updated: 2022/08/06 15:31:16 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_stack	*stack;
-	t_list	*a;
-	t_list	*b;
-	char	**test;
-	int		i;
+	const unsigned char	*str1;
+	const unsigned char	*str2;
+	size_t				i;
 
+	str1 = (const unsigned char *)s1;
+	str2 = (const unsigned char *)s2;
 	i = 0;
-	if (argc == 1)
+	if (n == 0)
 		return (0);
-	stack = malloc(sizeof(t_stack));
-	a = malloc(sizeof(*a));
-	b = NULL;
-	stack->a = a;
-	stack->b = b;
-	valid_check(argv);
-	test = valid_args(argv, argc);
-	fill_stack(stack, test);
-	push_swap(stack);
-	while (test[i])
-		free(test[i++]);
-	free(test);
-	free(stack->a);
-	free(stack);
-	free(a);
-	return (0);
+	while (str1[i] == str2[i] && i < n - 1 && str1[i])
+		i++;
+	return (str1[i] - str2[i]);
 }

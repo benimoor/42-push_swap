@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:48:13 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/08/05 17:16:58 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:29:58 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ size_t	ft_strlen(const char *str)
 void	put_msg(char *str, int fd)
 {
 	write(fd, str, (int)(ft_strlen(str)));
+	if (fd == 2)
+		exit(0);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -70,11 +72,13 @@ char	*ft_strdup(const char *src)
 
 int	ft_atoi(const char *str)
 {
-	int	is_negative;
-	int	res;
+	int			is_negative;
+	long int	res;
 
 	res = 0;
 	is_negative = 1;
+	if (ft_strncmp(str, "-0", 2) == 0 || ft_strncmp(str, "+0", 2) == 0)
+		put_msg("Number is incorrect", 2);
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-')
@@ -84,12 +88,12 @@ int	ft_atoi(const char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		res = res * 10 + *str - '0';
+		if ((res > INT_MAX && is_negative == 1)
+			|| ((res * -1) < INT_MIN && is_negative == -1))
+			put_msg("Number is incorrect", 2);
 		str++;
 	}
 	if (*str != '\0')
-	{
 		put_msg("Number is incorrect", 2);
-		exit (-1);
-	}
 	return (res * is_negative);
 }
