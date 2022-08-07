@@ -6,23 +6,38 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 17:07:33 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/08/06 18:15:45 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/08/07 23:56:42 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_list **a)
+void	free_stack(t_stack *stack)
 {
-	t_list	*tmp;
+	t_list	*start;
+	t_list	*next;
 
-	while (*a)
+	while (stack && stack->a)
 	{
-		if ((*a)->next)
-			tmp = (*a)->next;
-		free(*a);
-		*a = tmp;
+		start = stack->a;
+		next = stack->a;
+		while (next->next)
+		{
+			start = next;
+			next = next->next;
+		}
+		if (start == next)
+		{
+			free(stack->a);
+			stack->a = NULL;
+		}
+		else
+		{
+			start->next = NULL;
+			free(next);
+		}
 	}
+	free(stack);
 }
 
 int	main(int argc, char **argv)
@@ -48,7 +63,7 @@ int	main(int argc, char **argv)
 	while (test[i])
 		free(test[i++]);
 	free(test);
-	free(stack);
+	free_stack(stack);
 	free(a);
 	return (0);
 }
