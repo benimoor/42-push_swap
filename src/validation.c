@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 22:04:21 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/08/05 17:17:21 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/08/08 16:21:48 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,9 @@ void	valid_check(char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		if (!argv[i] || !*argv[i])
+		if (!argv[i] || !*argv[i] || ft_strncmp(argv[i], "-\0",
+				ft_strlen(argv[i])) == 0 || ft_strncmp(argv[i], "+\0",
+				ft_strlen(argv[i])) == 0)
 		{
 			put_msg("Enter valid arguments", 2);
 			exit(0);
