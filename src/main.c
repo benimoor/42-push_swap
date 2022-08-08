@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 17:07:33 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/08/07 23:56:42 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/08/08 16:31:46 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ int	main(int argc, char **argv)
 	valid_check(argv);
 	test = valid_args(argv, argc);
 	fill_stack(stack, test);
-	push_swap(stack);
 	while (test[i])
 		free(test[i++]);
 	free(test);
+	push_swap(stack);
 	free_stack(stack);
 	free(a);
 	return (0);
