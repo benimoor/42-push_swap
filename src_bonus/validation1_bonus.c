@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation1.c                                      :+:      :+:    :+:   */
+/*   validation1_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 18:12:23 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/11/19 18:30:58 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/11/20 01:21:29 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	arg_check(char **group)
 		if (atoi_check(group[i]) == 1)
 		{
 			free_dp(&group);
-			write(2, "error\n", ft_strlen("error\n"));
+			write(2, "Error\n", ft_strlen("error\n"));
 			exit(1);
 		}
 		check = limits_check(group[i]);
@@ -118,7 +118,7 @@ int	arg_check(char **group)
 		{
 			free_dp(&group);
 			free(check);
-			write(2, "error\n", ft_strlen("error\n"));
+			write(2, "Error\n", ft_strlen("error\n"));
 			exit(1);
 		}
 		free(check);

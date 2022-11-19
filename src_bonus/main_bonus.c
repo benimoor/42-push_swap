@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 17:07:33 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/11/20 00:59:18 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/11/20 01:29:39 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,12 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		test = join_args(argc, argv);
-		if (arg_check(test) != 0 || *test == NULL)
+		if (*test == NULL)
+			return (0);
+		if (arg_check(test) != 0)
 		{
 			free_dp(&test);
-			write(2, "error\n", ft_strlen("error\n"));
+			write(2, "Error\n", ft_strlen("error\n"));
 			exit(1);
 		}
 		stack = make_stack(&test);
