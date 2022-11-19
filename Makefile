@@ -36,10 +36,10 @@ $(BONUS_OBJS_DIR)/%.o: $(BONUS_DIR)/%.c | $(BONUS_DIR)
 $(BONUS): $(BONUS_OBJS) | $(BONUS_OBJS_DIR)
 	$(CC) $(FLAGS) -o $(BONUS) $(BONUS_OBJS)
 clean:
-	$(RM) $(OBJS_DIR) $(BONUS_OBJS_DIR)
+	$(RM) $(OBJS_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(BONUS)
 
 re: fclean all
 
