@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:51:55 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/08/06 13:50:51 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/11/20 00:13:02 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <limits.h>
+# include "get_next_line.h"
 
 typedef struct s_list
 {
@@ -39,8 +40,8 @@ typedef enum mode_e
 	BOTH
 }	t_mode;
 
-int		s_all(t_stack *stack, t_mode mod);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		s_all(t_stack *stack, t_mode mod);
 int		p_all(t_stack *stack, t_mode mod);
 int		r_all(t_stack *stack, t_mode mod);
 int		rr_all(t_stack *stack, t_mode mod);
@@ -61,6 +62,16 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(const char *src);
+//validation.c
+char	**join_args(int ac, char **av);
+char	*limits_check(char *str);
+int		arg_check(char **group);
+int		atoi_check(char *str);
+//utils.c
+char	*join_str(char *s1, char *s2);
+void	free_dp(char ***group);
+t_stack	*make_stack(char ***group);
+
 int		validation(char **res);
 int		fill_stack(t_stack *stack, char **res);
 void	push_swap(t_stack *stack);
@@ -77,4 +88,10 @@ void	push_to_a(t_stack *stack);
 int		sorted(t_list *a);
 void	get_indexs(t_list *cursor);
 
+//bonus
+void	checker(t_stack *stack);
+int		s_all_ch(t_stack *stack, t_mode mod);
+int		p_all_ch(t_stack *stack, t_mode mod);
+int		r_all_ch(t_stack *stack, t_mode mod);
+int		rr_all_ch(t_stack *stack, t_mode mod);
 #endif

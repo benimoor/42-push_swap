@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 17:07:33 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/11/20 00:08:33 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/11/20 00:59:18 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ int	main(int argc, char **argv)
 		if (arg_check(test) != 0 || *test == NULL)
 		{
 			free_dp(&test);
-			write(2, "Error\n", ft_strlen("error\n"));
+			write(2, "error\n", ft_strlen("error\n"));
 			exit(1);
 		}
 		stack = make_stack(&test);
-		push_swap(stack);
+		checker(stack);
 		free_stack(stack);
 	}
 	return (0);
