@@ -27,7 +27,7 @@ $(NAME): $(OBJS) | $(OBJS_DIR)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 
 # bonus : all
-bonus:	$(BONUS)
+bonus:	all $(BONUS)
 
 
 $(BONUS_OBJS_DIR)/%.o: $(BONUS_DIR)/%.c | $(BONUS_DIR)

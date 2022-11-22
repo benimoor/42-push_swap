@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions2.c                                         :+:      :+:    :+:   */
+/*   actions2_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 22:02:58 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/11/19 23:56:16 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/11/22 21:25:00 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	shift_rr(t_list **lst)
 	t_list	*start;
 	t_list	*cur;
 
+	if (!(*lst) && (*lst)->next == NULL)
+		return (0);
 	cur = *lst;
 	iter = *lst;
 	while (iter->next->next)
@@ -33,20 +35,20 @@ int	r_all_ch(t_stack *stack, t_mode mod)
 {
 	if (mod == A)
 	{
+		if (stack->a->next == NULL)
+			return (0);
 		shift(&stack->a);
 	}
 	else if (mod == B)
 	{
+		if (stack->b->next == NULL)
+			return (0);
 		shift(&stack->b);
 	}
 	else if (mod == BOTH)
 	{
 		shift(&stack->a);
 		shift(&stack->b);
-	}
-	else
-	{
-		return (-1);
 	}
 	return (0);
 }
@@ -55,20 +57,20 @@ int	rr_all_ch(t_stack *stack, t_mode mod)
 {
 	if (mod == A)
 	{
+		if (stack->a->next == NULL)
+			return (0);
 		shift_rr(&stack->a);
 	}
 	else if (mod == B)
 	{
+		if (stack->b->next == NULL)
+			return (0);
 		shift_rr(&stack->b);
 	}
 	else if (mod == BOTH)
 	{
 		shift_rr(&stack->a);
 		shift_rr(&stack->b);
-	}
-	else
-	{
-		return (-1);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 18:12:23 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/11/20 01:21:11 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/11/22 00:17:59 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,18 +108,12 @@ int	arg_check(char **group)
 	while (group[i])
 	{
 		if (atoi_check(group[i]) == 1)
-		{
-			free_dp(&group);
-			write(2, "Error\n", ft_strlen("error\n"));
-			exit(1);
-		}
+			free_dp(&group, 1);
 		check = limits_check(group[i]);
 		if (ft_strlen(check) == 4)
 		{
-			free_dp(&group);
 			free(check);
-			write(2, "Error\n", ft_strlen("error\n"));
-			exit(1);
+			free_dp(&group, 1);
 		}
 		free(check);
 		i++;

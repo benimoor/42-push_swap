@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils1.c                                           :+:      :+:    :+:   */
+/*   utils1_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 18:20:29 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/11/19 18:21:23 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/11/22 21:28:20 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*join_str(char *s1, char *s2)
 	return (str);
 }
 
-void	free_dp(char ***group)
+void	free_dp(char ***group, int a)
 {
 	int	i;
 
@@ -45,6 +45,11 @@ void	free_dp(char ***group)
 			free((*group)[i]);
 		free(*group);
 		*group = 0x0;
+	}
+	if (a == 1)
+	{
+		write(2, "Error\n", ft_strlen("error\n"));
+		exit(0);
 	}
 }
 
@@ -67,6 +72,6 @@ t_stack	*make_stack(char ***group)
 		i++;
 	}
 	ft_lstlast(stack->a)->next = NULL;
-	free_dp(group);
+	free_dp(group, 0);
 	return (stack);
 }

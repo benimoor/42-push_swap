@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 17:07:33 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/11/20 01:27:47 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/11/22 00:17:44 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,7 @@ int	main(int argc, char **argv)
 		if (*test == NULL)
 			return (0);
 		if (arg_check(test) != 0)
-		{
-			free_dp(&test);
-			write(2, "Error\n", ft_strlen("error\n"));
-			return (0);
-		}
+			free_dp(&test, 1);
 		stack = make_stack(&test);
 		push_swap(stack);
 		free_stack(stack);

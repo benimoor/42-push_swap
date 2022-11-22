@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:51:55 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/11/20 00:13:02 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/11/22 00:16:24 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int		arg_check(char **group);
 int		atoi_check(char *str);
 //utils.c
 char	*join_str(char *s1, char *s2);
-void	free_dp(char ***group);
+void	free_dp(char ***group, int a);
 t_stack	*make_stack(char ***group);
 
 int		validation(char **res);
@@ -89,7 +89,7 @@ int		sorted(t_list *a);
 void	get_indexs(t_list *cursor);
 
 //bonus
-void	checker(t_stack *stack);
+int		checker(t_stack *stack);
 int		s_all_ch(t_stack *stack, t_mode mod);
 int		p_all_ch(t_stack *stack, t_mode mod);
 int		r_all_ch(t_stack *stack, t_mode mod);
