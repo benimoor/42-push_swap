@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 18:12:23 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/11/22 00:18:52 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/11/22 22:56:35 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@ char	**join_args(int ac, char **av)
 	char	**res;
 	int		i;
 
+	i = 1;
+	while (av[i])
+	{
+		str = ft_strtrim(av[i], " ");
+		if (*str == '\0' || *av[i] == '\0')
+			return (NULL);
+		i++;
+		free(str);
+	}
 	i = 2;
 	str = ft_strdup(av[1]);
 	while (i < ac)

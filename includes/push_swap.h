@@ -6,7 +6,7 @@
 /*   By: ergrigor < ergrigor@student.42yerevan.am > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:51:55 by ergrigor          #+#    #+#             */
-/*   Updated: 2022/11/22 00:16:24 by ergrigor         ###   ########.fr       */
+/*   Updated: 2022/11/22 22:53:46 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ int		sorted(t_list *a);
 void	get_indexs(t_list *cursor);
 
 //bonus
+char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		checker(t_stack *stack);
 int		s_all_ch(t_stack *stack, t_mode mod);
 int		p_all_ch(t_stack *stack, t_mode mod);
