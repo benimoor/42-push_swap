@@ -27,7 +27,7 @@ The Push Swap project challenges students to implement an efficient sorting algo
 To build and run the Push Swap project, follow these steps:
 
 1. **Clone the repository**
-   ```sh
+   ```
    git clone https://github.com/your_username/push_swap.git
    cd push_swap
 
@@ -41,9 +41,7 @@ Usage
 
 To sort a stack of integers, run the compiled executable with integer arguments:
 
-sh
-
-./push_swap 5 3 1 4 2
+    ./push_swap 5 3 1 4 2
 
 Algorithm
 
