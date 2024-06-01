@@ -22,12 +22,20 @@
 #  define BUFFER_SIZE 32
 # endif
 
+#if defined(__APPLE__) && defined(__MACH__)
+    #define MAX_OPEN_FILES OPEN_MAX
+#elif defined(__linux__)
+    #define MAX_OPEN_FILES FOPEN_MAX
+#else
+    #error "Unsupported OS"
+#endif
+
 typedef struct s_get_next_line	t_get_gnl_line;
 
 struct s_get_next_line
 {
 	char	*buffer;
-	char	*fd_buffer[OPEN_MAX];
+	char	*fd_buffer[MAX_OPEN_FILES];
 };
 
 char	*gnl_get_line(char *buffer);

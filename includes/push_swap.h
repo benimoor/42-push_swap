@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <limits.h>
-# include "get_next_line.h"
+# include "./get_next_line.h"
 
 typedef struct s_list
 {
@@ -40,6 +40,8 @@ typedef enum mode_e
 	BOTH
 }	t_mode;
 
+int		ft_pa(t_stack *stack);
+int		ft_pb(t_stack *stack);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		s_all(t_stack *stack, t_mode mod);
 int		p_all(t_stack *stack, t_mode mod);
